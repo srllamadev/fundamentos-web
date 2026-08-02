@@ -195,50 +195,6 @@ Idiomas:
 
 ---
 
-## Comparación: `<ul>` vs `<ol>`
-
-| Característica | `<ul>` (Desordenada) | `<ol>` (Ordenada) |
-|----------------|----------------------|---------------------|
-| Significado | "unordered list" | "ordered list" |
-| Viñetas/números | Puntos (•) | Números (1, 2, 3...) |
-| ¿El orden importa? | No | Sí |
-| Uso típico | Lista de items, características, opciones | Pasos, ranking, cronología, niveles |
-
-### Ejemplo comparativo
-
-```html
-<!-- DESORDENADA: el orden no importa -->
-<h4>Habilidades:</h4>
-<ul>
-    <li>Trabajo en equipo</li>
-    <li>Liderazgo</li>
-    <li>Comunicación</li>
-</ul>
-
-Resultado:
-• Trabajo en equipo
-• Liderazgo
-• Comunicación
-
-
-<!-- ORDENADA: el orden SÍ importa (pasos) -->
-<h4>Pasos para un estudio de tiempos:</h4>
-<ol>
-    <li>Observar el proceso completo</li>
-    <li>Dividir en elementos</li>
-    <li>Cronometrar cada elemento</li>
-    <li>Calcular tiempos estándar</li>
-</ol>
-
-Resultado:
-1. Observar el proceso completo
-2. Dividir en elementos
-3. Cronometrar cada elemento
-4. Calcular tiempos estándar
-```
-
----
-
 ## Atributos especiales de `<ol>`
 
 ### Cambiar el número inicial
@@ -324,64 +280,5 @@ Resultado:
    • Graduado 2019
 ```
 
----
 
-## ¿Cuándo usar cada tipo en un perfil profesional?
 
-| Tipo de contenido | Lista recomendada | Por qué |
-|-------------------|-------------------|---------|
-| Logros/experiencias | `<ul>` | No tienen un orden estricto |
-| Metodologías conocidas | `<ul>` | Son un conjunto de herramientas |
-| Pasos de un proceso | `<ol>` | El orden es fundamental |
-| Idiomas por nivel | `<ol>` | Ordenados por dominio |
-| Certificaciones por fecha | `<ol>` | Orden cronológico |
-| Habilidades blandas | `<ul>` | No hay orden de importancia |
-| Software conocido | `<ol>` o `<ul>` | Depende si quieres rankear por nivel |
-
----
-
-## Reglas importantes
-
-| Regla | Detalle |
-|-------|---------|
-| Los `<li>` solo van dentro de `<ul>` o `<ol>` | No los uses fuera de una lista |
-| Cada `<li>` es un elemento independiente | No pongas varios ítems en un solo `<li>` |
-| Las listas pueden anidarse | Una `<ul>` dentro de un `<li>` de otra `<ol>` y viceversa |
-| Los `<li>` pueden contener otros elementos | `<p>`, `<a>`, `<span>`, incluso otras listas |
-| No uses listas para hacer layouts | Para eso existe CSS Grid/Flexbox |
-
----
-
-## Errores comunes
-
-### Error 1: Usar `<p>` con viñetas manuales
-
-```html
-<!-- INCORRECTO: simular una lista con párrafos -->
-<p>• Primer item</p>
-<p>• Segundo item</p>
-<p>• Tercer item</p>
-
-<!-- CORRECTO: usar una lista real -->
-<ul>
-    <li>Primer item</li>
-    <li>Segundo item</li>
-    <li>Tercer item</li>
-</ul>
-```
-
-### Error 2: Olvidar los `<li>`
-
-```html
-<!-- INCORRECTO: texto suelto dentro de la lista -->
-<ul>
-    Texto sin li
-    <li>Item 1</li>
-</ul>
-
-<!-- CORRECTO: todo dentro de <li> -->
-<ul>
-    <li>Item 1</li>
-    <li>Item 2</li>
-</ul>
-```
