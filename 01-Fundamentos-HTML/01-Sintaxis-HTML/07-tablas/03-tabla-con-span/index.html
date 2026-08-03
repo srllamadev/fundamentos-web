@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yamil N - Tabla con Colspan y Rowspan</title>
+</head>
+<body>
+
+    <div>
+        <h1>Yamil N</h1>
+        <h2>Ingeniero Industrial | Especialista en Optimizacion de Procesos</h2>
+    </div>
+
+    <div>
+        <h3>Tabla con colspan (celdas que ocupan varias columnas)</h3>
+
+        <table border="1">
+            <caption>KPIs de Gestion - Ano 2025</caption>
+            <thead>
+                <tr>
+                    <th>Trimestre</th>
+                    <th>Meta</th>
+                    <th>Resultado</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Primer Trimestre</td>
+                    <td>Reducir desperdicios en 10%</td>
+                    <td>12% de reduccion</td>
+                    <td>Superado</td>
+                </tr>
+                <tr>
+                    <td>Segundo Trimestre</td>
+                    <td>Mejorar tiempos de entrega en 15%</td>
+                    <td>15% de mejora</td>
+                    <td>Cumplido</td>
+                </tr>
+                <tr>
+                    <td>Tercer Trimestre</td>
+                    <td>Capacitar al 80% del equipo</td>
+                    <td>75% capacitado</td>
+                    <td>En proceso</td>
+                </tr>
+                <tr>
+                    <td colspan="4">Meta anual acumulada: Reducir costos operativos en 20%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <h3>Tabla con rowspan (celdas que ocupan varias filas)</h3>
+
+        <table border="1">
+            <caption>Competencias Tecnicas por Area</caption>
+            <thead>
+                <tr>
+                    <th>Area</th>
+                    <th>Herramienta</th>
+                    <th>Nivel</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="3">Diseno</td>
+                    <td>AutoCAD</td>
+                    <td>Avanzado</td>
+                </tr>
+                <tr>
+                    <td>SolidWorks</td>
+                    <td>Intermedio</td>
+                </tr>
+                <tr>
+                    <td>CATIA</td>
+                    <td>Basico</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">Analisis</td>
+                    <td>Minitab</td>
+                    <td>Avanzado</td>
+                </tr>
+                <tr>
+                    <td>SPSS</td>
+                    <td>Intermedio</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">Gestion</td>
+                    <td>SAP</td>
+                    <td>Intermedio</td>
+                </tr>
+                <tr>
+                    <td>Microsoft Project</td>
+                    <td>Avanzado</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
