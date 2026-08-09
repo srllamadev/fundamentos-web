@@ -94,24 +94,6 @@ En la leccion anterior aprendiste la tabla basica con `<table>`, `<tr>` y `<td>`
 - `<th>` es igual que `<td>` pero se muestra en **negrita** y centrado.
 - Se usa para los **titulos de las columnas** (la primera fila que describe que hay en cada columna).
 
-### Comparacion
-
-```
-Con <td> (texto normal):
-┌──────────┬────────────┬─────────┐
-│ Cargo    │ Empresa    │ Periodo │
-├──────────┼────────────┼─────────┤
-│ Gerente  │ TextilPro  │ 2020    │
-└──────────┴────────────┴─────────┘
-
-Con <th> (negrita y centrado):
-┌──────────┬────────────┬─────────┐
-│  Cargo   │  Empresa   │ Periodo │   ← Negrita y centrado
-├──────────┼────────────┼─────────┤
-│ Gerente  │ TextilPro  │ 2020    │   ← Normal
-└──────────┴────────────┴─────────┘
-```
-
 ### Regla practica
 
 - **Primera fila** de la tabla: usa `<th>` para los titulos.
@@ -383,15 +365,3 @@ Resultado:
     <tr><td>Dato</td></tr>
 </tbody>
 ```
-
----
-
-## Ejercicio practico
-
-1. Abre el `index.html` en tu navegador.
-2. Observa la diferencia entre los `<th>` (negrita) y los `<td>` (normal).
-3. Agrega un `<caption>` a cada tabla describiendo su contenido.
-4. Crea una nueva tabla "Certificaciones" con `<thead>` y `<tbody>`.
-5. Agrega una columna extra "Ciudad" a la tabla de experiencia.
-6. Intenta poner `<tbody>` antes de `<thead>`. ¿Que pasa?
-7. ¿Que pasa si usas `<th>` en el cuerpo en vez de `<td>`?

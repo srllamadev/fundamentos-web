@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Float y Clear - Yamil N | TextilPro S.A.</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+      padding: 30px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      color: #1a5276;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .subtitulo {
+      text-align: center;
+      color: #2e86c1;
+      margin-bottom: 40px;
+      font-size: 1.1rem;
+    }
+
+    .perfil-card {
+      background: linear-gradient(135deg, #1a5276, #2e86c1);
+      color: white;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .perfil-card .avatar {
+      width: 60px;
+      height: 60px;
+      background-color: #f39c12;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #1a5276;
+      flex-shrink: 0;
+    }
+
+    .perfil-card .info h2 {
+      color: #f39c12;
+      margin-bottom: 5px;
+    }
+
+    .perfil-card .info p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .ejemplo {
+      background: white;
+      border-radius: 10px;
+      padding: 25px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .ejemplo h3 {
+      color: #1a5276;
+      border-bottom: 3px solid #2e86c1;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    /* ===== DEMO 1: FLOAT PARA TEXTO ALREDEDOR ===== */
+    .demo-imagen-texto {
+      overflow: hidden;
+    }
+
+    .demo-imagen-texto .img-flotante {
+      float: left;
+      width: 150px;
+      height: 150px;
+      background-color: #2e86c1;
+      border-radius: 8px;
+      margin-right: 20px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 0.8rem;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .demo-imagen-texto p {
+      margin-bottom: 10px;
+    }
+
+    /* ===== DEMO 2: COLAPSO DEL CONTENDOR ===== */
+    .demo-colapso-padre {
+      border: 3px dashed #e74c3c;
+      padding: 10px;
+      margin-bottom: 20px;
+      background-color: #fef0f0;
+      border-radius: 8px;
+    }
+
+    .demo-colapso-padre .label {
+      color: #e74c3c;
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+    }
+
+    .demo-colapso-padre .hijo-flotante {
+      float: left;
+      width: 80px;
+      height: 80px;
+      background-color: #f39c12;
+      margin: 5px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1a5276;
+      font-weight: bold;
+      font-size: 0.75rem;
+    }
+
+    /* ===== DEMO 3: CLEARFIX ===== */
+    .clearfix::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .demo-clearfix-padre {
+      border: 3px solid #27ae60;
+      padding: 10px;
+      margin-bottom: 20px;
+      background-color: #f0fef0;
+      border-radius: 8px;
+    }
+
+    .demo-clearfix-padre .label {
+      color: #27ae60;
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+    }
+
+    .demo-clearfix-padre .hijo-flotante {
+      float: left;
+      width: 80px;
+      height: 80px;
+      background-color: #f39c12;
+      margin: 5px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1a5276;
+      font-weight: bold;
+      font-size: 0.75rem;
+    }
+
+    /* ===== DEMO 4: CLEAR ===== */
+    .demo-clear .flotante-izq {
+      float: left;
+      background-color: #2e86c1;
+      color: white;
+      padding: 20px 30px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .demo-clear .flotante-der {
+      float: right;
+      background-color: #1a5276;
+      color: white;
+      padding: 20px 30px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .demo-clear .elemento-con-clear {
+      clear: both;
+      background-color: #f39c12;
+      color: #1a5276;
+      padding: 15px;
+      text-align: center;
+      font-weight: bold;
+      border-radius: 6px;
+      margin-top: 10px;
+    }
+
+    .demo-clear .sin-clear {
+      background-color: #e74c3c;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-weight: bold;
+      border-radius: 6px;
+      margin-top: 10px;
+    }
+
+    /* ===== DEMO 5: AVATAR COMENTARIO (uso valido hoy) ===== */
+    .comentario {
+      overflow: hidden;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-left: 4px solid #2e86c1;
+    }
+
+    .comentario .avatar-float {
+      float: left;
+      width: 50px;
+      height: 50px;
+      background-color: #1a5276;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #f39c12;
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-right: 15px;
+    }
+
+    .comentario .contenido-comentario .nombre {
+      font-weight: bold;
+      color: #1a5276;
+      margin-bottom: 3px;
+    }
+
+    .comentario .contenido-comentario .texto {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .comentario .contenido-comentario .fecha {
+      font-size: 0.8rem;
+      color: #999;
+      margin-top: 5px;
+    }
+
+    /* ===== TABLA COMPARATIVA ===== */
+    .tabla-comparativa {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    .tabla-comparativa th {
+      background-color: #1a5276;
+      color: white;
+      padding: 10px;
+      text-align: left;
+    }
+
+    .tabla-comparativa td {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .tabla-comparativa tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    .tag-no {
+      background-color: #e74c3c;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+
+    .tag-si {
+      background-color: #27ae60;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+
+    .timeline {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 20px 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+    }
+
+    .timeline-item {
+      text-align: center;
+      flex: 1;
+    }
+
+    .timeline-item .year {
+      font-weight: bold;
+      color: #1a5276;
+    }
+
+    .timeline-item .tech {
+      font-size: 0.85rem;
+      color: #555;
+    }
+
+    .timeline-arrow {
+      font-size: 1.5rem;
+      color: #f39c12;
+    }
+
+    code {
+      background-color: #e8e8e8;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 0.9em;
+      color: #1a5276;
+    }
+
+    .footer {
+      text-align: center;
+      color: #999;
+      margin-top: 40px;
+      padding: 20px;
+      border-top: 2px solid #eee;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Float y Clear</h1>
+  <p class="subtitulo">Una leccion de historia CSS | Yamil N - TextilPro S.A.</p>
+
+  <!-- PERFIL -->
+  <div class="perfil-card">
+    <div class="avatar">YN</div>
+    <div class="info">
+      <h2>Yamil N</h2>
+      <p>Ingeniero Industrial | TextilPro S.A. | La Paz, Bolivia</p>
+      <p>"En Lean Manufacturing, cada herramienta tiene su uso correcto. float no es la excepcion."</p>
+    </div>
+  </div>
+
+  <!-- PROPOSITO ORIGINAL -->
+  <section class="ejemplo">
+    <h3>1. El proposito original: texto alrededor de imagenes</h3>
+    <p><code>float</code> fue creado para que el texto fluya alrededor de un elemento, como en las revistas impresas.</p>
+    <div class="demo-imagen-texto">
+      <div class="img-flotante">float: left</div>
+      <p>Este texto fluye naturalmente alrededor de la imagen flotante a la izquierda. Asi es como funcionaban las revistas impresas de TextilPro: ponian una foto del producto y la descripcion lo rodeaba.</p>
+      <p>La propiedad <code>margin-right</code> en la imagen evita que el texto quede pegado a ella. Este es el uso <strong>correcto</strong> y vigente de <code>float</code> en CSS moderno.</p>
+      <p>Observa como el texto se adapta automaticamente al espacio disponible junto a la imagen, creando un flujo de lectura natural.</p>
+    </div>
+  </section>
+
+  <!-- COLAPSO DEL CONTENDOR -->
+  <section class="ejemplo">
+    <h3>2. El colapso del contenedor (problema)</h3>
+    <p>Cuando <strong>todos</strong> los hijos de un contenedor tienen <code>float</code>, el padre <strong>colapsa</strong> su altura a 0:</p>
+
+    <p style="color: #e74c3c; font-weight: bold;">SIN clearfix (altura = 0):</p>
+    <div class="demo-colapso-padre">
+      <div class="label">PADRE con borde dashed rojo (colapsado!)</div>
+      <div class="hijo-flotante">Float 1</div>
+      <div class="hijo-flotante">Float 2</div>
+      <div class="hijo-flotante">Float 3</div>
+    </div>
+    <p>El borde rojo del padre no envuelve a los hijos. La altura es 0 porque los hijos "escaparon" del flujo.</p>
+
+    <p style="color: #27ae60; font-weight: bold; margin-top: 20px;">CON clearfix (altura correcta):</p>
+    <div class="demo-clearfix-padre clearfix">
+      <div class="label">PADRE con borde verde (clearfix aplicado)</div>
+      <div class="hijo-flotante">Float 1</div>
+      <div class="hijo-flotante">Float 2</div>
+      <div class="hijo-flotante">Float 3</div>
+    </div>
+    <p>El clearfix (<code>::after</code> con <code>clear: both</code>) obliga al padre a "ver" a sus hijos y envolverlos correctamente.</p>
+  </section>
+
+  <!-- CLEAR -->
+  <section class="ejemplo">
+    <h3>3. clear: evitar que un elemento fluya junto a flotantes</h3>
+    <p><code>clear: both</code> fuerza al elemento a pasar por debajo de cualquier flotante.</p>
+    <div class="demo-clear">
+      <div class="flotante-izq">float: left</div>
+      <div class="flotante-der">float: right</div>
+      <div class="elemento-con-clear">Este tiene clear: both (pasa debajo)</div>
+    </div>
+    <div class="demo-clear" style="margin-top: 15px;">
+      <div class="flotante-izq">float: left</div>
+      <div class="flotante-der">float: right</div>
+      <div class="sin-clear">Este NO tiene clear (se sube entre los flotantes)</div>
+    </div>
+  </section>
+
+  <!-- USO VALIDO HOY -->
+  <section class="ejemplo">
+    <h3>4. Uso valido hoy: avatar en comentarios</h3>
+    <p>Un caso donde <code>float</code> sigue siendo practico es en componentes pequenos como comentarios de blog:</p>
+
+    <div class="comentario">
+      <div class="avatar-float">YN</div>
+      <div class="contenido-comentario">
+        <div class="nombre">Yamil N</div>
+        <div class="texto">Revisamos la linea de produccion A. Los tiempos de ciclo mejoraron un 15% despues de aplicar 5S en el area de corte.</div>
+        <div class="fecha">Hace 2 horas - TextilPro S.A.</div>
+      </div>
+    </div>
+
+    <div class="comentario">
+      <div class="avatar-float">MR</div>
+      <div class="contenido-comentario">
+        <div class="nombre">Maria Rodriguez</div>
+        <div class="texto">Excelente resultado. Vamos a replicar el metodo en la linea B la proxima semana.</div>
+        <div class="fecha">Hace 1 hora - TextilPro S.A.</div>
+      </div>
+    </div>
+
+    <div class="comentario">
+      <div class="avatar-float">JC</div>
+      <div class="contenido-comentario">
+        <div class="nombre">Juan Carlos</div>
+        <div class="texto">El proveedor de tela confirmo entrega para el jueves. Coordino con el almacen.</div>
+        <div class="fecha">Hace 30 minutos - TextilPro S.A.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVOLUCION -->
+  <section class="ejemplo">
+    <h3>5. Evolucion de layouts en CSS</h3>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="year">~2000</div>
+        <div class="tech">Tablas</div>
+      </div>
+      <div class="timeline-arrow">→</div>
+      <div class="timeline-item">
+        <div class="year">~2005</div>
+        <div class="tech">Float + hacks</div>
+      </div>
+      <div class="timeline-arrow">→</div>
+      <div class="timeline-item">
+        <div class="year">~2015</div>
+        <div class="tech">Flexbox</div>
+      </div>
+      <div class="timeline-arrow">→</div>
+      <div class="timeline-item">
+        <div class="year">2020+</div>
+        <div class="tech">Grid + Flexbox</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TABLA COMPARATIVA -->
+  <section class="ejemplo">
+    <h3>6. Comparacion: Float vs Flexbox vs Grid</h3>
+    <table class="tabla-comparativa">
+      <thead>
+        <tr>
+          <th>Caracteristica</th>
+          <th>Float</th>
+          <th>Flexbox</th>
+          <th>Grid</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Crear layouts de columnas</td>
+          <td><span class="tag-no">Dificil</span></td>
+          <td><span class="tag-si">Facil</span></td>
+          <td><span class="tag-si">Muy facil</span></td>
+        </tr>
+        <tr>
+          <td>Centrar verticalmente</td>
+          <td><span class="tag-no">Casi imposible</span></td>
+          <td><span class="tag-si">align-items</span></td>
+          <td><span class="tag-si">align-items</span></td>
+        </tr>
+        <tr>
+          <td>Responsive</td>
+          <td><span class="tag-no">Complejo</span></td>
+          <td><span class="tag-si">flex-wrap</span></td>
+          <td><span class="tag-si">auto-fill</span></td>
+        </tr>
+        <tr>
+          <td>Orden visual flexible</td>
+          <td><span class="tag-no">No</span></td>
+          <td><span class="tag-si">order</span></td>
+          <td><span class="tag-si">grid-area</span></td>
+        </tr>
+        <tr>
+          <td>Texto alrededor de imagen</td>
+          <td><span class="tag-si">Si (original)</span></td>
+          <td><span class="tag-no">No es su fin</span></td>
+          <td><span class="tag-no">No es su fin</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p>Curso de Fundamentos Web - Seccion 03: Maquetacion Clasica</p>
+    <p>Yamil N | TextilPro S.A. | La Paz, Bolivia</p>
+  </div>
+
+</body>
+</html>

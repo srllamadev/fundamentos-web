@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yamil N - Colores y Unidades</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        h1 {
+            color: #1a5276;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            color: rgb(46, 134, 193);
+            margin-top: 0;
+        }
+
+        h3 {
+            color: rgb(26, 82, 118);
+            border-bottom: 2px solid #2e86c1;
+            padding-bottom: 8px;
+        }
+
+        /* Colores por nombre */
+        .ejemplo-nombre {
+            color: darkblue;
+            background-color: lightyellow;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid gray;
+        }
+
+        /* Colores hexadecimales */
+        .ejemplo-hex {
+            color: #ffffff;
+            background-color: #1a5276;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        /* Colores RGB */
+        .ejemplo-rgb {
+            color: rgb(255, 255, 255);
+            background-color: rgb(46, 134, 193);
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        /* Colores RGBA (con transparencia) */
+        .ejemplo-rgba {
+            color: rgb(0, 0, 0);
+            background-color: rgba(46, 134, 193, 0.3);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid rgba(46, 134, 193, 0.5);
+        }
+
+        /* Unidades absolutas: px */
+        .ejemplo-px {
+            font-size: 16px;
+            width: 300px;
+            padding: 20px;
+            margin: 15px 0;
+            background-color: #d5f5e3;
+        }
+
+        /* Unidades relativas: em */
+        .ejemplo-em-padre {
+            font-size: 20px;
+            background-color: #fdebd0;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .ejemplo-em-hijo {
+            font-size: 1.5em;
+            background-color: #fad7a0;
+            padding: 10px;
+        }
+
+        /* Unidades relativas: rem */
+        .ejemplo-rem {
+            font-size: 1.2rem;
+            background-color: #d6eaf8;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        /* Unidades relativas: % */
+        .ejemplo-porcentaje {
+            width: 80%;
+            background-color: #e8daef;
+            padding: 15px;
+            margin: 15px auto;
+        }
+
+        /* Paleta de colores profesional */
+        .paleta {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .color-primario { background-color: #1a5276; color: white; padding: 15px; }
+        .color-secundario { background-color: #2e86c1; color: white; padding: 15px; }
+        .color-acento { background-color: #f39c12; color: white; padding: 15px; }
+        .color-fondo { background-color: #f5f5f5; color: #333; padding: 15px; border: 1px solid #ddd; }
+        .color-texto { background-color: #333; color: white; padding: 15px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Yamil N</h1>
+        <h2>Ingeniero Industrial | Especialista en Optimizacion de Procesos</h2>
+    </header>
+
+    <div class="seccion">
+        <h3>Colores por Nombre</h3>
+        <p class="ejemplo-nombre">Este texto usa color: darkblue sobre fondo lightyellow.</p>
+    </div>
+
+    <div class="seccion">
+        <h3>Colores Hexadecimales</h3>
+        <p class="ejemplo-hex">Texto blanco (#ffffff) sobre fondo azul oscuro (#1a5276).</p>
+    </div>
+
+    <div class="seccion">
+        <h3>Colores RGB</h3>
+        <p class="ejemplo-rgb">Texto blanco rgb(255,255,255) sobre fondo rgb(46,134,193).</p>
+    </div>
+
+    <div class="seccion">
+        <h3>Colores RGBA (con transparencia)</h3>
+        <p class="ejemplo-rgba">Fondo con 30% de transparencia: rgba(46, 134, 193, 0.3).</p>
+    </div>
+
+    <div class="seccion">
+        <h3>Unidad Absoluta: px (pixeles)</h3>
+        <p class="ejemplo-px">Este contenedor tiene width: 300px, font-size: 16px, padding: 20px.</p>
+    </div>
+
+    <div class="seccion">
+        <h3>Unidad Relativa: em (respecto al padre)</h3>
+        <div class="ejemplo-em-padre">
+            <p>Padre con font-size: 20px.</p>
+            <p class="ejemplo-em-hijo">Hijo con font-size: 1.5em (= 30px, el 150% del padre).</p>
+        </div>
+    </div>
+
+    <div class="seccion">
+        <h3>Unidad Relativa: rem (respecto a la raiz)</h3>
+        <p class="ejemplo-rem">Este texto usa font-size: 1.2rem. Siempre es relativo al tamano base del navegador (16px por defecto). 1.2rem = 19.2px.</p>
+    </div>
+
+    <div class="seccion">
+        <h3>Unidad Relativa: % (porcentaje)</h3>
+        <div class="ejemplo-porcentaje">
+            <p>Este contenedor tiene width: 80% del ancho de su padre.</p>
+        </div>
+    </div>
+
+    <div class="seccion">
+        <h3>Paleta de Colores del Perfil</h3>
+        <div class="paleta">
+            <div class="color-primario">Primario #1a5276</div>
+            <div class="color-secundario">Secundario #2e86c1</div>
+            <div class="color-acento">Acento #f39c12</div>
+            <div class="color-fondo">Fondo #f5f5f5</div>
+            <div class="color-texto">Texto #333</div>
+        </div>
+    </div>
+
+</body>
+</html>

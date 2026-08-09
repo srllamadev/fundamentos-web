@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yamil N - Modelo de Caja</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+
+        h1 { color: #1a5276; }
+        h2 { color: #2e86c1; }
+        h3 { color: #1a5276; border-bottom: 2px solid #2e86c1; padding-bottom: 8px; }
+
+        .tarjeta {
+            background-color: white;
+            margin: 20px 0;
+            padding: 20px;
+        }
+
+        .ejemplo-caja {
+            background-color: #d5f5e3;
+            padding: 40px;
+            margin: 30px;
+            border: 5px solid #2e86c1;
+        }
+
+        .ejemplo-sin-box-sizing {
+            width: 300px;
+            padding: 30px;
+            border: 5px solid #e74c3c;
+            background-color: #fadbd8;
+            margin: 20px 0;
+        }
+
+        .ejemplo-con-box-sizing {
+            width: 300px;
+            padding: 30px;
+            border: 5px solid #27ae60;
+            background-color: #d5f5e3;
+            margin: 20px 0;
+            box-sizing: border-box;
+        }
+
+        .ejemplo-margin {
+            background-color: #fdebd0;
+            padding: 20px;
+            margin: 40px;
+            border: 3px solid #f39c12;
+        }
+
+        .ejemplo-margin-cero {
+            background-color: #fdebd0;
+            padding: 20px;
+            margin: 0;
+            border: 3px solid #f39c12;
+        }
+
+        .diagrama {
+            background-color: white;
+            border: 2px solid #1a5276;
+            padding: 30px;
+            margin: 20px 0;
+            text-align: center;
+            font-family: monospace;
+        }
+
+        .margin-box { border: 3px dashed #e74c3c; padding: 20px; background-color: #fadbd8; }
+        .border-box { border: 5px solid #2e86c1; padding: 20px; background-color: #d6eaf8; }
+        .padding-box { border: 3px dashed #27ae60; padding: 20px; background-color: #d5f5e3; }
+        .content-box { border: 3px solid #7f8c8d; padding: 20px; background-color: #f2f3f4; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Yamil N</h1>
+        <h2>Modelo de Caja (Box Model)</h2>
+    </header>
+
+    <div class="tarjeta">
+        <h3>¿Que es el Modelo de Caja?</h3>
+        <p>TODO elemento HTML es una caja con 4 capas: contenido, padding, border y margin.</p>
+    </div>
+
+    <div class="tarjeta">
+        <h3>Diagrama del Modelo de Caja</h3>
+        <div class="diagrama">
+            <div class="margin-box">
+                MARGIN (espacio exterior)
+                <div class="border-box">
+                    BORDER (borde)
+                    <div class="padding-box">
+                        PADDING (espacio interior)
+                        <div class="content-box">
+                            CONTENIDO (texto, imagenes)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <h3>Ejemplo Visual de una Caja</h3>
+        <div class="ejemplo-caja">
+            <p>Esta caja tiene: padding: 40px, margin: 30px, border: 5px solid #2e86c1.</p>
+            <p>El contenido esta separado del borde por el padding (40px).</p>
+            <p>La caja esta separada de las demas por el margin (30px).</p>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <h3>El Problema de width sin box-sizing</h3>
+        <p>Sin <code>box-sizing: border-box</code>, el width NO incluye padding ni border:</p>
+        <div class="ejemplo-sin-box-sizing">
+            <p>width: 300px + padding: 30px*2 + border: 5px*2 = <strong>370px de ancho real</strong></p>
+        </div>
+        <p>Con <code>box-sizing: border-box</code>, el width SI incluye padding y border:</p>
+        <div class="ejemplo-con-box-sizing">
+            <p>width: 300px (incluye padding y border) = <strong>300px de ancho real</strong></p>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <h3>Efecto del Margin</h3>
+        <div class="ejemplo-margin">
+            <p>Esta caja tiene margin: 40px. Nota el espacio alrededor.</p>
+        </div>
+        <div class="ejemplo-margin-cero">
+            <p>Esta caja tiene margin: 0. No hay espacio exterior.</p>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <h3>La Solucion: box-sizing global</h3>
+        <pre>
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+        </pre>
+        <p>Esta regla hace que TODOS los elementos usen border-box. Es la practica estandar moderna.</p>
+    </div>
+
+</body>
+</html>

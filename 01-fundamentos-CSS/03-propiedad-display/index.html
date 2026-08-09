@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yamil N - Propiedad display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        h1 { color: #1a5276; }
+        h2 { color: #2e86c1; }
+        h3 { color: #1a5276; border-bottom: 2px solid #2e86c1; padding-bottom: 8px; }
+
+        .tarjeta {
+            background-color: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-left: 4px solid #2e86c1;
+        }
+
+        /* ===== DEMO 1: BLOCK ===== */
+        .bloque-demo {
+            display: block;
+            background-color: #d6eaf8;
+            border: 2px solid #2e86c1;
+            padding: 15px;
+            margin: 10px 0;
+            width: 400px;
+        }
+
+        /* ===== DEMO 2: INLINE ===== */
+        .inline-demo {
+            display: inline;
+            background-color: #fadbd8;
+            border: 2px solid #e74c3c;
+            padding: 5px 10px;
+            margin: 10px;
+        }
+
+        /* Intento fallido de width en inline */
+        .inline-con-width {
+            display: inline;
+            background-color: #fdebd0;
+            border: 2px solid #f39c12;
+            width: 300px;      /* NO FUNCIONA */
+            height: 100px;     /* NO FUNCIONA */
+            padding: 10px;
+            margin: 10px;
+        }
+
+        /* ===== DEMO 3: INLINE-BLOCK ===== */
+        .inline-block-demo {
+            display: inline-block;
+            background-color: #d5f5e3;
+            border: 2px solid #27ae60;
+            padding: 15px;
+            margin: 10px;
+            width: 180px;
+            height: 80px;
+            vertical-align: top;
+        }
+
+        /* ===== DEMO 4: NONE ===== */
+        .visible {
+            background-color: #d6eaf8;
+            border: 2px solid #2e86c1;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        .oculto-none {
+            display: none;
+            background-color: #fadbd8;
+            border: 2px solid #e74c3c;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        .oculto-hidden {
+            visibility: hidden;
+            background-color: #fdebd0;
+            border: 2px solid #f39c12;
+            padding: 15px;
+            margin: 10px 0;
+        }
+
+        /* ===== DEMO 5: Link como boton ===== */
+        .boton-link {
+            display: inline-block;
+            background-color: #1a5276;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin: 5px;
+            font-weight: bold;
+        }
+
+        .boton-link:hover {
+            background-color: #2e86c1;
+        }
+
+        .boton-link.accent {
+            background-color: #f39c12;
+            color: white;
+        }
+
+        .boton-link.accent:hover {
+            background-color: #e67e22;
+        }
+
+        /* ===== DEMO 6: Columnas con inline-block ===== */
+        .contenedor-columnas {
+            font-size: 0;
+        }
+        .columna {
+            display: inline-block;
+            width: 30%;
+            margin-right: 3%;
+            background-color: #d5f5e3;
+            border: 2px solid #27ae60;
+            padding: 15px;
+            vertical-align: top;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        .columna:last-child {
+            margin-right: 0;
+        }
+
+        /* ===== DEMO 7: Imagen con display block ===== */
+        .img-inline {
+            display: inline;
+        }
+        .img-block {
+            display: block;
+        }
+
+        .etiqueta-display {
+            display: inline-block;
+            background-color: #1a5276;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-family: monospace;
+            font-size: 0.85em;
+            margin-left: 8px;
+        }
+
+        pre {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        code {
+            background-color: #eee;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+            color: inherit;
+        }
+
+        .resultado {
+            background-color: #fef9e7;
+            border: 1px dashed #f39c12;
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Yamil N</h1>
+        <h2>Propiedad display</h2>
+    </header>
+
+    <div class="tarjeta">
+        <h3>1. display: block <span class="etiqueta-display">block</span></h3>
+        <p>Los elementos block ocupan TODO el ancho disponible y empiezan en una linea nueva.</p>
+        <div class="bloque-demo">Bloque 1: Yamil N - Ingeniero Industrial (width: 400px)</div>
+        <div class="bloque-demo">Bloque 2: Cada bloque empieza en una linea nueva</div>
+        <div class="bloque-demo" style="width: 250px;">Bloque 3: width: 250px (mas corto)</div>
+        <p class="resultado">Cada bloque ocupa su propia linea y acepta width, height, margin, padding.</p>
+    </div>
+
+    <div class="tarjeta">
+        <h3>2. display: inline <span class="etiqueta-display">inline</span></h3>
+        <p>Los elementos inline se quedan en la misma linea que el texto. <span class="inline-demo">Span 1</span> Aceptan padding horizontal pero <span class="inline-demo">Span 2</span> NO aceptan width ni height.</p>
+        <p>Intento fallido de dar tamano a un inline:</p>
+        <span class="inline-con-width">Este span dice width: 300px pero NO funciona</span>
+        <p class="resultado">El span con width: 300px y height: 100px se ve del tamano normal del texto. Esas propiedades se ignoran en display: inline.</p>
+    </div>
+
+    <div class="tarjeta">
+        <h3>3. display: inline-block <span class="etiqueta-display">inline-block</span></h3>
+        <p>Lo mejor de ambos mundos: se quedan en linea pero aceptan width y height.</p>
+        <div class="inline-block-demo">Perfil: Yamil N</div>
+        <div class="inline-block-demo">Profesion: Ingeniero</div>
+        <div class="inline-block-demo">Pais: Bolivia</div>
+        <p class="resultado">Las 3 cajas estan en la misma linea. Cada una tiene width: 180px y height: 80px. inline-block permite esto.</p>
+    </div>
+
+    <div class="tarjeta">
+        <h3>4. display: none vs visibility: hidden <span class="etiqueta-display">none / hidden</span></h3>
+        <p><code>display: none</code> elimina el elemento del layout. <code>visibility: hidden</code> lo hace invisible pero deja el hueco.</p>
+
+        <div class="visible">Elemento A: Visible (Yamil N - La Paz, Bolivia)</div>
+        <div class="oculto-none">[Este elemento tiene display: none. No se ve y no ocupa espacio.]</div>
+        <div class="visible">Elemento C: Esta pegado a A porque B no ocupa espacio.</div>
+
+        <div class="visible">Elemento D: Visible</div>
+        <div class="oculto-hidden">[Este elemento tiene visibility: hidden. No se ve pero ocupa espacio.]</div>
+        <div class="visible">Elemento F: Hay un espacio arriba porque E ocupa su lugar.</div>
+
+        <p class="resultado">Arriba: entre A y C no hay espacio (B tiene display:none). Entre D y F si hay hueco (E tiene visibility:hidden).</p>
+    </div>
+
+    <div class="tarjeta">
+        <h3>5. Links como botones <span class="etiqueta-display">inline-block</span></h3>
+        <p>Un <code>&lt;a&gt;</code> es inline por defecto. Con <code>display: inline-block</code> podemos hacerlo boton.</p>
+        <a href="#" class="boton-link">Ver Perfil de Yamil</a>
+        <a href="#" class="boton-link accent">Contactar</a>
+        <a href="#" class="boton-link">Proyectos</a>
+        <p class="resultado">Los links son ahora botones con padding, background, border-radius. Todo gracias a display: inline-block.</p>
+    </div>
+
+    <div class="tarjeta">
+        <h3>6. Columnas con inline-block <span class="etiqueta-display">inline-block + width</span></h3>
+        <p>Antes de Flexbox, asi se ponian elementos en fila. El padre tiene <code>font-size: 0</code> para eliminar espacios.</p>
+        <div class="contenedor-columnas">
+            <div class="columna">
+                <strong>Ingenieria</strong>
+                <p>Yamil N se especializo en procesos industriales en Bolivia.</p>
+            </div>
+            <div class="columna">
+                <strong> Educacion</strong>
+                <p>Formacion en la UMSA con enfoque en desarrollo web.</p>
+            </div>
+            <div class="columna">
+                <strong> Tecnologia</strong>
+                <p>Apasionado por HTML, CSS y la maquetacion moderna.</p>
+            </div>
+        </div>
+        <p class="resultado">3 columnas con width: 30% y display: inline-block. El truco del font-size: 0 en el padre elimina los espacios en blanco.</p>
+    </div>
+
+    <div class="tarjeta">
+        <h3>7. Imagenes: inline vs block <span class="etiqueta-display">inline / block</span></h3>
+        <p>Las imagenes son inline por defecto y tienen un "espacio fantasma" debajo. Con <code>display: block</code> desaparece.</p>
+        <p>Inline (nota el espacio debajo de la imagen):</p>
+        <div style="border: 2px solid #e74c3c; display: inline-block; padding: 5px;">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='60'%3E%3Crect fill='%232e86c1' width='120' height='60'/%3E%3Ctext x='60' y='35' text-anchor='middle' fill='white' font-size='14'%3EYamil N%3C/text%3E%3C/svg%3E" class="img-inline" alt="Yamil N inline">
+        </div>
+        <p style="margin-top: 15px;">Block (sin espacio extra):</p>
+        <div style="border: 2px solid #27ae60; display: inline-block; padding: 5px;">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='60'%3E%3Crect fill='%232e86c1' width='120' height='60'/%3E%3Ctext x='60' y='35' text-anchor='middle' fill='white' font-size='14'%3EYamil N%3C/text%3E%3C/svg%3E" class="img-block" alt="Yamil N block">
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <h3>Resumen: Tabla de comparacion</h3>
+        <pre><code>Propiedad              block    inline   inline-block   none
+--------------------------------------------------------------
+Linea nueva             Si       No         No           -
+Ocupa todo el ancho     Si       No         No           -
+Acepta width            Si      NO          Si           -
+Acepta height           Si      NO          Si           -
+Acepta margin (todos)   Si    Solo horiz    Si           -
+Acepta padding (todos)  Si    Solo horiz*   Si           -
+Se queda en linea       No       Si         Si           -
+Ocupa espacio           Si       Si         Si          NO</code></pre>
+        <p>*El padding vertical en inline se aplica visualmente pero puede afectar la linea de texto.</p>
+    </div>
+
+</body>
+</html>

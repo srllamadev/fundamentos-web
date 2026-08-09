@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yamil N - Cascada y Especificidad</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        h1 { color: #1a5276; }
+        h2 { color: #2e86c1; }
+        h3 { color: #1a5276; border-bottom: 2px solid #2e86c1; padding-bottom: 8px; }
+
+        .tarjeta {
+            background-color: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-left: 4px solid #2e86c1;
+        }
+
+        /* ===== DEMO 1: Tag vs Clase ===== */
+        p {
+            color: red;                /* especificidad: 0-0-1 */
+        }
+        .perfil {
+            color: #1a5276;            /* especificidad: 0-1-0 --> GANA */
+        }
+
+        /* ===== DEMO 2: Clase vs ID ===== */
+        .tarjeta-perfil {
+            background-color: #d6eaf8; /* especificidad: 0-1-0 */
+            padding: 20px;
+        }
+        #perfil-yamil {
+            background-color: #f39c12; /* especificidad: 1-0-0 --> GANA */
+        }
+
+        /* ===== DEMO 3: Mismo selector, diferente orden ===== */
+        .nombre {
+            font-size: 18px;           /* especificidad: 0-1-0 */
+        }
+        .nombre {
+            font-size: 28px;           /* especificidad: 0-1-0, ULTIMO --> GANA */
+            font-weight: bold;
+            color: #1a5276;
+        }
+
+        /* ===== DEMO 4: !important ===== */
+        .texto-normal {
+            color: blue;
+        }
+        .texto-fuerte {
+            color: #e74c3c !important; /* GANA sobre todo */
+        }
+
+        /* ===== DEMO 5: Herencia ===== */
+        .contenedor-herencia {
+            color: #1a5276;            /* Se hereda a los hijos */
+            font-family: Georgia, serif;
+            padding: 20px;
+            background-color: #d5f5e3; /* NO se hereda */
+            border: 2px solid #27ae60;
+        }
+
+        /* ===== DEMO 6: Especificidad combinada ===== */
+        div.tarjeta .titulo-seccion {
+            color: #2e86c1;            /* 0-1-1 --> GANA sobre .titulo-seccion solo */
+        }
+        .titulo-seccion {
+            color: red;                /* 0-1-0 --> PIERDE */
+        }
+
+        /* ===== DEMO 7: Orden vs Especificidad ===== */
+        .orden-a {
+            color: green;              /* 0-1-0 */
+        }
+        #orden-b {
+            color: #f39c12;            /* 1-0-0 --> GANA aunque vaya segundo */
+        }
+
+        pre {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        code {
+            background-color: #eee;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+            color: inherit;
+        }
+
+        .etiqueta-especificidad {
+            display: inline-block;
+            background-color: #1a5276;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-family: monospace;
+            font-size: 0.85em;
+            margin-left: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Yamil N</h1>
+        <h2>Cascada y Especificidad</h2>
+    </header>
+
+    <div class="tarjeta">
+        <h3>1. Tag vs Clase <span class="etiqueta-especificidad">0-1-0 gana a 0-0-1</span></h3>
+        <p>Este parrafo tiene <code>class="perfil"</code>. La regla <code>p</code> dice rojo, pero <code>.perfil</code> dice azul oscuro. La clase gana.</p>
+        <p class="perfil">Yamil N - Ingeniero Industrial de Bolivia. Este texto es azul oscuro porque .perfil (0-1-0) gana sobre p (0-0-1).</p>
+    </div>
+
+    <div class="tarjeta">
+        <h3>2. Clase vs ID <span class="etiqueta-especificidad">1-0-0 gana a 0-1-0</span></h3>
+        <p>La clase dice fondo azul claro, pero el ID dice fondo naranja. El ID gana siempre.</p>
+        <div class="tarjeta-perfil" id="perfil-yamil">
+            <p>Perfil de Yamil N: Ingeniero Industrial. Este fondo es naranja porque el ID <code>#perfil-yamil</code> gana sobre <code>.tarjeta-perfil</code>.</p>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <h3>3. Mismo selector, diferente orden <span class="etiqueta-especificidad">0-1-0 = 0-1-0, ultimo gana</span></h3>
+        <p>Dos reglas con <code>.nombre</code>. La primera dice 18px, la segunda 28px. Ambas tienen la misma especificidad, pero la ultima escrita gana.</p>
+        <span class="nombre">Yamil N</span>
+        <p>Este texto tiene 28px porque la segunda regla <code>.nombre</code> gano por orden.</p>
+    </div>
+
+    <div class="tarjeta">
+        <h3>4. !important: el martillo <span class="etiqueta-especificidad">!important gana sobre todo</span></h3>
+        <p>La clase <code>.texto-normal</code> dice azul, pero <code>.texto-fuerte</code> tiene <code>!important</code> y dice rojo.</p>
+        <p class="texto-normal texto-fuerte">Este texto es rojo porque !important siempre gana. Yamil N - Bolivia.</p>
+    </div>
+
+    <div class="tarjeta">
+        <h3>5. Herencia <span class="etiqueta-especificidad">color y font-family se heredan</span></h3>
+        <p>El contenedor padre tiene <code>color: #1a5276</code> y <code>font-family: Georgia</code>. Los hijos heredan estos valores automaticamente.</p>
+        <div class="contenedor-herencia">
+            <p>Este parrafo hereda el color y la fuente del padre. Yamil N - Ingeniero Industrial.</p>
+            <span>Pero el background-color NO se hereda: este span tiene fondo transparente.</span>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <h3>6. Especificidad combinada <span class="etiqueta-especificidad">0-1-1 gana a 0-1-0</span></h3>
+        <p><code>div.tarjeta .titulo-seccion</code> tiene especificidad 0-1-1, mayor que <code>.titulo-seccion</code> solo (0-1-0).</p>
+        <h3 class="titulo-seccion">Este titulo es azul porque el selector combinado gana</h3>
+    </div>
+
+    <div class="tarjeta">
+        <h3>7. Orden vs Especificidad <span class="etiqueta-especificidad">1-0-0 gana a 0-1-0 siempre</span></h3>
+        <p>Aunque <code>.orden-a</code> aparece antes, <code>#orden-b</code> tiene ID (1-0-0) y gana sin importar el orden.</p>
+        <p class="orden-a" id="orden-b">Yamil N - Este texto es naranja porque el ID gana, no importa que la clase apareciera antes.</p>
+    </div>
+
+    <div class="tarjeta">
+        <h3>Resumen visual de especificidad</h3>
+        <pre><code>Selector                    ID  Clase  Tag   Total
+--------------------------------------------------
+*                           0    0      0     0-0-0
+p                           0    0      1     0-0-1
+.parrafo                    0    1      0     0-1-0
+#titulo                     1    0      0     1-0-0
+p.parrafo                   0    1      1     0-1-1
+#titulo .parrafo p          1    1      1     1-1-1
+style="color: red"          1    0      0     (inline, el mas fuerte)
+!important                  -    -      -     (gana sobre todo)</code></pre>
+    </div>
+
+</body>
+</html>

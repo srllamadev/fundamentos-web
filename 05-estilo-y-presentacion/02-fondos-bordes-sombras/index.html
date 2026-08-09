@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02 - Fondos, Bordes y Sombras | Yamil N - TextilPro S.A.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a5276;
+            --secondary: #2e86c1;
+            --accent: #f39c12;
+            --background: #f5f5f5;
+            --text: #333;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--background);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(26, 82, 118, 0.3);
+        }
+
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 18px;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        .section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        /* DEMO 1: Background Colors */
+        .bg-demos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .bg-demo {
+            padding: 30px;
+            text-align: center;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+        }
+
+        .bg-primary { background-color: var(--primary); }
+        .bg-secondary { background-color: var(--secondary); }
+        .bg-accent { background-color: var(--accent); color: var(--text); }
+
+        /* DEMO 2: Background Gradients */
+        .gradient-demos {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .gradient-demo {
+            padding: 40px;
+            border-radius: 10px;
+            color: white;
+            font-size: 18px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .gradient-linear {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        .gradient-radial {
+            background: radial-gradient(circle, var(--secondary), var(--primary));
+        }
+
+        .gradient-tricolor {
+            background: linear-gradient(to right, var(--primary), var(--secondary), var(--accent));
+        }
+
+        /* DEMO 3: Border Styles */
+        .border-demos {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .border-demo {
+            padding: 25px;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .border-solid {
+            border: 3px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .border-dashed {
+            border: 3px dashed var(--secondary);
+            color: var(--secondary);
+        }
+
+        .border-dotted {
+            border: 3px dotted var(--accent);
+            color: var(--accent);
+        }
+
+        .border-double {
+            border: 5px double var(--primary);
+            color: var(--primary);
+        }
+
+        /* DEMO 4: Border Radius */
+        .radius-demos {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .radius-demo {
+            background: var(--secondary);
+            color: white;
+            padding: 30px 15px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .radius-0 { border-radius: 0; }
+        .radius-8 { border-radius: 8px; }
+        .radius-20 { border-radius: 20px; }
+        .radius-circle { border-radius: 50%; width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; margin: 0 auto; }
+
+        /* DEMO 5: Box Shadows */
+        .shadow-demos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .shadow-demo {
+            background: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .shadow-none { box-shadow: none; border: 2px solid #ddd; }
+        .shadow-light { box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .shadow-medium { box-shadow: 0 4px 15px rgba(0,0,0,0.15); }
+        .shadow-heavy { box-shadow: 0 8px 25px rgba(0,0,0,0.25); }
+        .shadow-color { box-shadow: 0 4px 15px rgba(46, 134, 193, 0.4); }
+        .shadow-inset { box-shadow: inset 0 2px 8px rgba(0,0,0,0.15); }
+
+        /* DEMO 6: Text Shadow */
+        .text-shadow-demos {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .text-shadow-demo {
+            background: var(--primary);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .text-shadow-none { text-shadow: none; }
+        .text-shadow-subtle { text-shadow: 1px 1px 2px rgba(0,0,0,0.3); }
+        .text-shadow-strong { text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .text-shadow-glow { text-shadow: 0 0 10px rgba(243, 156, 18, 0.8); }
+
+        /* DEMO 7: Tarjeta de perfil completa */
+        .profile-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .profile-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 40px;
+            text-align: center;
+            color: white;
+        }
+
+        .profile-header h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .profile-header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .profile-body {
+            padding: 30px;
+        }
+
+        .profile-body h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .profile-body p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .profile-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat {
+            background: var(--background);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 4px solid var(--accent);
+        }
+
+        .stat-number {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text);
+            margin-top: 5px;
+        }
+
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid var(--accent);
+            padding: 15px 20px;
+            margin-top: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .note strong {
+            color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <header>
+            <h1>Fondos, Bordes y Sombras</h1>
+            <p>Dando vida visual a los contenedores con Yamil N | TextilPro S.A.</p>
+        </header>
+
+        <!-- DEMO 1: Colores de fondo -->
+        <div class="section">
+            <h2>1. Colores de Fondo (background-color)</h2>
+            <div class="bg-demos">
+                <div class="bg-demo bg-primary">
+                    Primario<br>
+                    <small>#1a5276</small>
+                </div>
+                <div class="bg-demo bg-secondary">
+                    Secundario<br>
+                    <small>#2e86c1</small>
+                </div>
+                <div class="bg-demo bg-accent">
+                    Acento<br>
+                    <small>#f39c12</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- DEMO 2: Degradados -->
+        <div class="section">
+            <h2>2. Degradados de Fondo (background gradients)</h2>
+            <div class="gradient-demos">
+                <div class="gradient-demo gradient-linear">
+                    linear-gradient(135deg, primary, secondary)
+                </div>
+                <div class="gradient-demo gradient-radial">
+                    radial-gradient(circle, secondary, primary)
+                </div>
+                <div class="gradient-demo gradient-tricolor">
+                    linear-gradient(to right, primary, secondary, accent)
+                </div>
+            </div>
+        </div>
+
+        <!-- DEMO 3: Estilos de borde -->
+        <div class="section">
+            <h2>3. Estilos de Borde (border)</h2>
+            <div class="border-demos">
+                <div class="border-demo border-solid">
+                    border: solid
+                </div>
+                <div class="border-demo border-dashed">
+                    border: dashed
+                </div>
+                <div class="border-demo border-dotted">
+                    border: dotted
+                </div>
+                <div class="border-demo border-double">
+                    border: double
+                </div>
+            </div>
+        </div>
+
+        <!-- DEMO 4: Border Radius -->
+        <div class="section">
+            <h2>4. Bordes Redondeados (border-radius)</h2>
+            <div class="radius-demos">
+                <div class="radius-demo radius-0">
+                    0px
+                </div>
+                <div class="radius-demo radius-8">
+                    8px
+                </div>
+                <div class="radius-demo radius-20">
+                    20px
+                </div>
+                <div class="radius-demo radius-circle">
+                    50%
+                </div>
+            </div>
+            <div class="note">
+                <strong>Consejo:</strong> border-radius: 50% crea un circulo perfecto si el elemento es cuadrado.
+            </div>
+        </div>
+
+        <!-- DEMO 5: Box Shadows -->
+        <div class="section">
+            <h2>5. Sombras de Caja (box-shadow)</h2>
+            <div class="shadow-demos">
+                <div class="shadow-demo shadow-none">
+                    Sin sombra
+                </div>
+                <div class="shadow-demo shadow-light">
+                    Sombra ligera
+                </div>
+                <div class="shadow-demo shadow-medium">
+                    Sombra media
+                </div>
+                <div class="shadow-demo shadow-heavy">
+                    Sombra fuerte
+                </div>
+                <div class="shadow-demo shadow-color">
+                    Sombra con color
+                </div>
+                <div class="shadow-demo shadow-inset">
+                    Sombra interna
+                </div>
+            </div>
+        </div>
+
+        <!-- DEMO 6: Text Shadow -->
+        <div class="section">
+            <h2>6. Sombras de Texto (text-shadow)</h2>
+            <div class="text-shadow-demos">
+                <div class="text-shadow-demo text-shadow-none">
+                    Sin sombra
+                </div>
+                <div class="text-shadow-demo text-shadow-subtle">
+                    Sombra sutil
+                </div>
+                <div class="text-shadow-demo text-shadow-strong">
+                    Sombra fuerte
+                </div>
+                <div class="text-shadow-demo text-shadow-glow">
+                    Efecto glow
+                </div>
+            </div>
+        </div>
+
+        <!-- DEMO 7: Tarjeta de perfil completa -->
+        <div class="section">
+            <h2>7. Tarjeta de Perfil Completa</h2>
+            <div class="profile-card">
+                <div class="profile-header">
+                    <h2>Yamil N</h2>
+                    <p>Ingeniero Industrial | TextilPro S.A.</p>
+                </div>
+                <div class="profile-body">
+                    <h3>Experiencia Profesional</h3>
+                    <p>
+                        Profesional con solida experiencia en gestion de operaciones y mejora continua en la industria textil. Especializado en implementacion de metodologias Lean Manufacturing, optimizacion de procesos productivos y reduccion de desperdicios.
+                    </p>
+                    <div class="profile-stats">
+                        <div class="stat">
+                            <span class="stat-number">8+</span>
+                            <span class="stat-label">Anos de experiencia</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">15%</span>
+                            <span class="stat-label">Reduccion de costos</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">200+</span>
+                            <span class="stat-label">Proyectos completados</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

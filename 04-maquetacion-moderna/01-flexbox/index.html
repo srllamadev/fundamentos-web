@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexbox - Yamil N | TextilPro S.A.</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* ===== NAVBAR CON FLEXBOX ===== */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #1a5276;
+      padding: 15px 30px;
+      color: white;
+    }
+
+    .navbar .logo {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #f39c12;
+    }
+
+    .navbar .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .navbar .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .navbar .nav-links a:hover {
+      color: #f39c12;
+    }
+
+    /* ===== CONTENEDOR PRINCIPAL ===== */
+    .main-content {
+      max-width: 950px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .perfil-header {
+      background: linear-gradient(135deg, #1a5276, #2e86c1);
+      color: white;
+      padding: 25px;
+      border-radius: 12px;
+      margin-bottom: 35px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .perfil-header .avatar {
+      width: 65px;
+      height: 65px;
+      background-color: #f39c12;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #1a5276;
+      flex-shrink: 0;
+    }
+
+    .perfil-header h2 {
+      color: #f39c12;
+      margin-bottom: 5px;
+    }
+
+    .perfil-header p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    /* ===== SECCIONES DE EJEMPLO ===== */
+    .ejemplo {
+      background: white;
+      border-radius: 10px;
+      padding: 25px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .ejemplo h3 {
+      color: #1a5276;
+      border-bottom: 3px solid #2e86c1;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    .ejemplo p {
+      margin-bottom: 15px;
+    }
+
+    /* ===== DEMO: CENTRAR CON FLEXBOX ===== */
+    .demo-centrar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 200px;
+      background-color: #f0f4f8;
+      border: 2px dashed #2e86c1;
+      border-radius: 8px;
+    }
+
+    .demo-centrar .box-centrado {
+      background-color: #f39c12;
+      color: #1a5276;
+      padding: 20px 30px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    /* ===== DEMO: JUSTIFY-CONTENT ===== */
+    .demo-justify {
+      margin-bottom: 15px;
+    }
+
+    .demo-justify .label {
+      font-weight: bold;
+      color: #1a5276;
+      margin-bottom: 8px;
+      font-size: 0.85rem;
+    }
+
+    .demo-justify .contenedor {
+      display: flex;
+      background-color: #f0f4f8;
+      padding: 10px;
+      border-radius: 6px;
+      min-height: 60px;
+      align-items: center;
+    }
+
+    .demo-justify .contenedor .item {
+      background-color: #2e86c1;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 4px;
+      margin: 0 5px;
+      font-size: 0.85rem;
+    }
+
+    .demo-justify .jc-start { justify-content: flex-start; }
+    .demo-justify .jc-center { justify-content: center; }
+    .demo-justify .jc-end { justify-content: flex-end; }
+    .demo-justify .jc-between { justify-content: space-between; }
+    .demo-justify .jc-around { justify-content: space-around; }
+    .demo-justify .jc-evenly { justify-content: space-evenly; }
+
+    /* ===== DEMO: ALIGN-ITEMS ===== */
+    .demo-align {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .demo-align .contenedor {
+      display: flex;
+      background-color: #f0f4f8;
+      padding: 10px;
+      border-radius: 6px;
+      height: 150px;
+      width: calc(50% - 8px);
+      align-items: center;
+    }
+
+    .demo-align .contenedor .item {
+      background-color: #1a5276;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+
+    .demo-align .contenedor .item.alto {
+      padding: 25px 12px;
+    }
+
+    .demo-align .ai-start { align-items: flex-start; }
+    .demo-align .ai-center { align-items: center; }
+    .demo-align .ai-end { align-items: flex-end; }
+    .demo-align .ai-stretch { align-items: stretch; }
+
+    /* ===== DEMO: FLEX-DIRECTION ===== */
+    .demo-direction {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .demo-direction .contenedor {
+      display: flex;
+      background-color: #f0f4f8;
+      padding: 15px;
+      border-radius: 6px;
+      width: calc(50% - 10px);
+    }
+
+    .demo-direction .contenedor .item {
+      background-color: #f39c12;
+      color: #1a5276;
+      padding: 8px 12px;
+      border-radius: 4px;
+      margin: 3px;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    .demo-direction .dir-row { flex-direction: row; }
+    .demo-direction .dir-row-rev { flex-direction: row-reverse; }
+    .demo-direction .dir-col { flex-direction: column; }
+    .demo-direction .dir-col-rev { flex-direction: column-reverse; }
+
+    /* ===== DEMO: TARJETAS DE PRODUCTOS ===== */
+    .demo-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .demo-cards .card {
+      flex: 1 1 250px;
+      background: white;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .demo-cards .card .card-header {
+      background-color: #2e86c1;
+      color: white;
+      padding: 10px;
+      border-radius: 6px;
+      text-align: center;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+
+    .demo-cards .card .card-body {
+      flex-grow: 1;
+    }
+
+    .demo-cards .card .card-body p {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .demo-cards .card .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 15px;
+      border-top: 1px solid #eee;
+    }
+
+    .demo-cards .card .precio {
+      font-weight: bold;
+      color: #1a5276;
+      font-size: 1.1rem;
+    }
+
+    .demo-cards .card .btn-card {
+      background-color: #f39c12;
+      color: #1a5276;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+
+    /* ===== DEMO: SIDEBAR + CONTENIDO ===== */
+    .demo-sidebar-layout {
+      display: flex;
+      gap: 20px;
+      min-height: 250px;
+    }
+
+    .demo-sidebar-layout .sidebar {
+      width: 200px;
+      background-color: #1a5276;
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      flex-shrink: 0;
+    }
+
+    .demo-sidebar-layout .sidebar h4 {
+      color: #f39c12;
+      margin-bottom: 15px;
+    }
+
+    .demo-sidebar-layout .sidebar ul {
+      list-style: none;
+    }
+
+    .demo-sidebar-layout .sidebar ul li {
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.9rem;
+    }
+
+    .demo-sidebar-layout .contenido {
+      flex-grow: 1;
+      background-color: #f9f9f9;
+      padding: 20px;
+      border-radius: 8px;
+      border: 2px solid #e0e0e0;
+    }
+
+    .demo-sidebar-layout .contenido h4 {
+      color: #1a5276;
+      margin-bottom: 10px;
+    }
+
+    /* ===== DEMO: LISTA DE TAREAS ===== */
+    .tarea-item {
+      display: flex;
+      align-items: center;
+      background-color: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      padding: 12px 15px;
+      margin-bottom: 10px;
+    }
+
+    .tarea-item .icono {
+      margin-right: 15px;
+      font-size: 1.3rem;
+    }
+
+    .tarea-item .texto-tarea {
+      flex-grow: 1;
+      font-size: 0.95rem;
+    }
+
+    .tarea-item .texto-tarea .titulo {
+      font-weight: bold;
+      color: #1a5276;
+    }
+
+    .tarea-item .texto-tarea .subtitulo {
+      font-size: 0.8rem;
+      color: #777;
+    }
+
+    .tarea-item .btn-eliminar {
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+
+    code {
+      background-color: #e8e8e8;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 0.9em;
+      color: #1a5276;
+    }
+
+    .label-tag {
+      display: inline-block;
+      background-color: #2e86c1;
+      color: white;
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .footer {
+      background-color: #1a5276;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">TextilPro S.A.</div>
+    <ul class="nav-links">
+      <li><a href="#centrar">Centrar</a></li>
+      <li><a href="#justify">Justify</a></li>
+      <li><a href="#align">Align</a></li>
+      <li><a href="#direction">Direction</a></li>
+      <li><a href="#cards">Cards</a></li>
+      <li><a href="#sidebar">Sidebar</a></li>
+    </ul>
+  </nav>
+
+  <main class="main-content">
+
+    <!-- PERFIL -->
+    <section class="perfil-header">
+      <div class="avatar">YN</div>
+      <div>
+        <h2>Yamil N</h2>
+        <p><strong>Ingeniero Industrial</strong> | TextilPro S.A. | La Paz, Bolivia</p>
+        <p>"Flexbox es como una linea de ensamblaje: los elementos fluyen en una direccion, y cada uno tiene su lugar."</p>
+      </div>
+    </section>
+
+    <!-- CENTRAR -->
+    <section class="ejemplo" id="centrar">
+      <h3>1. Centrar con Flexbox</h3>
+      <p>La forma mas facil de centrar un elemento horizontal y verticalmente:</p>
+      <div class="demo-centrar">
+        <div class="box-centrado">
+          Estoy centrado con<br>
+          <code>justify-content: center</code><br>
+          <code>align-items: center</code>
+        </div>
+      </div>
+    </section>
+
+    <!-- JUSTIFY-CONTENT -->
+    <section class="ejemplo" id="justify">
+      <h3>2. justify-content (eje principal)</h3>
+      <p>Controla la distribucion de items en el eje principal (horizontal si <code>flex-direction: row</code>):</p>
+
+      <div class="demo-justify">
+        <div class="label">flex-start (por defecto)</div>
+        <div class="contenedor jc-start">
+          <div class="item">Item 1</div>
+          <div class="item">Item 2</div>
+          <div class="item">Item 3</div>
+        </div>
+      </div>
+
+      <div class="demo-justify">
+        <div class="label">center</div>
+        <div class="contenedor jc-center">
+          <div class="item">Item 1</div>
+          <div class="item">Item 2</div>
+          <div class="item">Item 3</div>
+        </div>
+      </div>
+
+      <div class="demo-justify">
+        <div class="label">flex-end</div>
+        <div class="contenedor jc-end">
+          <div class="item">Item 1</div>
+          <div class="item">Item 2</div>
+          <div class="item">Item 3</div>
+        </div>
+      </div>
+
+      <div class="demo-justify">
+        <div class="label">space-between</div>
+        <div class="contenedor jc-between">
+          <div class="item">Item 1</div>
+          <div class="item">Item 2</div>
+          <div class="item">Item 3</div>
+        </div>
+      </div>
+
+      <div class="demo-justify">
+        <div class="label">space-around</div>
+        <div class="contenedor jc-around">
+          <div class="item">Item 1</div>
+          <div class="item">Item 2</div>
+          <div class="item">Item 3</div>
+        </div>
+      </div>
+
+      <div class="demo-justify">
+        <div class="label">space-evenly</div>
+        <div class="contenedor jc-evenly">
+          <div class="item">Item 1</div>
+          <div class="item">Item 2</div>
+          <div class="item">Item 3</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ALIGN-ITEMS -->
+    <section class="ejemplo" id="align">
+      <h3>3. align-items (eje cruzado)</h3>
+      <p>Controla la alineacion en el eje perpendicular al principal:</p>
+      <div class="demo-align">
+        <div class="contenedor ai-start">
+          <div class="label-tag">flex-start</div>
+          <div class="item">A</div>
+          <div class="item alto">B</div>
+          <div class="item">C</div>
+        </div>
+        <div class="contenedor ai-center">
+          <div class="label-tag">center</div>
+          <div class="item">A</div>
+          <div class="item alto">B</div>
+          <div class="item">C</div>
+        </div>
+        <div class="contenedor ai-end">
+          <div class="label-tag">flex-end</div>
+          <div class="item">A</div>
+          <div class="item alto">B</div>
+          <div class="item">C</div>
+        </div>
+        <div class="contenedor ai-stretch">
+          <div class="label-tag">stretch</div>
+          <div class="item">A</div>
+          <div class="item alto">B</div>
+          <div class="item">C</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FLEX-DIRECTION -->
+    <section class="ejemplo" id="direction">
+      <h3>4. flex-direction</h3>
+      <p>Cambia la direccion del eje principal:</p>
+      <div class="demo-direction">
+        <div class="contenedor dir-row">
+          <div class="label-tag">row</div>
+          <div class="item">1</div>
+          <div class="item">2</div>
+          <div class="item">3</div>
+        </div>
+        <div class="contenedor dir-row-rev">
+          <div class="label-tag">row-reverse</div>
+          <div class="item">1</div>
+          <div class="item">2</div>
+          <div class="item">3</div>
+        </div>
+        <div class="contenedor dir-col">
+          <div class="label-tag">column</div>
+          <div class="item">1</div>
+          <div class="item">2</div>
+          <div class="item">3</div>
+        </div>
+        <div class="contenedor dir-col-rev">
+          <div class="label-tag">column-reverse</div>
+          <div class="item">1</div>
+          <div class="item">2</div>
+          <div class="item">3</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TARJETAS DE PRODUCTOS -->
+    <section class="ejemplo" id="cards">
+      <h3>5. Tarjetas de productos con flex-wrap</h3>
+      <p>Tarjetas que se envuelven automaticamente si no hay espacio. Cada tarjeta tiene su contenido organizado con Flexbox vertical:</p>
+      <div class="demo-cards">
+        <div class="card">
+          <div class="card-header">Camisa Industrial</div>
+          <div class="card-body">
+            <p>Camisa de uniforme para operarios de linea. Tela resistente, manga corta.</p>
+          </div>
+          <div class="card-footer">
+            <span class="precio">Bs. 120</span>
+            <button class="btn-card">Agregar</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">Pantalon de Trabajo</div>
+          <div class="card-body">
+            <p>Pantalon reforzado con bolsillos laterales. Ideal para planta de produccion.</p>
+          </div>
+          <div class="card-footer">
+            <span class="precio">Bs. 150</span>
+            <button class="btn-card">Agregar</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">Chaleco de Seguridad</div>
+          <div class="card-body">
+            <p>Chaleco reflectivo para area de almacen. Cumple normas de seguridad industrial.</p>
+          </div>
+          <div class="card-footer">
+            <span class="precio">Bs. 85</span>
+            <button class="btn-card">Agregar</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIDEBAR + CONTENIDO -->
+    <section class="ejemplo" id="sidebar">
+      <h3>6. Sidebar + Contenido principal</h3>
+      <p>La sidebar tiene ancho fijo y el contenido principal crece para llenar el espacio disponible con <code>flex-grow: 1</code>:</p>
+      <div class="demo-sidebar-layout">
+        <div class="sidebar">
+          <h4>Panel de Control</h4>
+          <ul>
+            <li>Produccion</li>
+            <li>Inventario</li>
+            <li>Personal</li>
+            <li>Reportes</li>
+            <li>Configuracion</li>
+          </ul>
+        </div>
+        <div class="contenido">
+          <h4>Contenido Principal (flex-grow: 1)</h4>
+          <p>Este area crece automaticamente para llenar el espacio disponible despues de la sidebar.</p>
+          <p>En TextilPro, este layout se usa en el dashboard de produccion donde la sidebar muestra las secciones y el area principal muestra graficos y datos de las lineas de ensamblaje.</p>
+          <p>La clave es <code>flex-grow: 1</code> en el contenido y <code>flex-shrink: 0</code> en la sidebar para que no se encoja.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LISTA DE TAREAS -->
+    <section class="ejemplo">
+      <h3>7. Lista de tareas (caso practico)</h3>
+      <p>Cada tarea tiene icono a la izquierda, texto flexible en el centro, y boton a la derecha:</p>
+
+      <div class="tarea-item">
+        <span class="icono">🔧</span>
+        <div class="texto-tarea">
+          <div class="titulo">Mantenimiento linea de corte A</div>
+          <div class="subtitulo">Programado para hoy 14:00 - TextilPro</div>
+        </div>
+        <button class="btn-eliminar">Eliminar</button>
+      </div>
+
+      <div class="tarea-item">
+        <span class="icono">📦</span>
+        <div class="texto-tarea">
+          <div class="titulo">Revisar inventario de tela azul</div>
+          <div class="subtitulo">Proveedor confirma entrega jueves - TextilPro</div>
+        </div>
+        <button class="btn-eliminar">Eliminar</button>
+      </div>
+
+      <div class="tarea-item">
+        <span class="icono">📊</span>
+        <div class="texto-tarea">
+          <div class="titulo">Reporte de eficiencia semanal</div>
+          <div class="subtitulo">Linea A: 87% | Linea B: 92% - TextilPro</div>
+        </div>
+        <button class="btn-eliminar">Eliminar</button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>Curso de Fundamentos Web - Seccion 04: Maquetacion Moderna</p>
+    <p>Yamil N | TextilPro S.A. | La Paz, Bolivia</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Funciones Modernas CSS - Perfil Yamil N.</title>
+  <style>
+    /* ============================================
+       FUNCIONES MODERNAS DE CSS
+       Yamil N. - Ingeniero Industrial - TextilPro S.A.
+       ============================================ */
+
+    :root {
+      --color-primario: #1a5276;
+      --color-secundario: #2e86c1;
+      --color-acento: #f39c12;
+      --color-fondo: #f5f5f5;
+      --color-texto: #333333;
+      --color-blanco: #ffffff;
+      --fuente-principal: 'Segoe UI', Arial, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--color-fondo);
+      color: var(--color-texto);
+      font-family: var(--fuente-principal);
+      line-height: 1.6;
+    }
+
+    /* ===== calc() - Calculos con unidades mixtas ===== */
+    .barra-superior {
+      background-color: var(--color-primario);
+      color: var(--color-blanco);
+      padding: calc(1rem + 8px) calc(2rem + 10px);
+      text-align: center;
+      width: calc(100% - 0px);
+    }
+
+    /* Titulo fluido con clamp() */
+    .titulo-principal {
+      font-size: clamp(1.5rem, 5vw, 3rem);
+      margin-bottom: calc(0.5rem + 4px);
+    }
+
+    .subtitulo {
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+      opacity: 0.9;
+    }
+
+    /* ===== Contenedor principal ===== */
+    .contenedor {
+      max-width: min(1200px, 100% - 2rem);
+      margin: calc(1rem + 8px) auto;
+      padding: 0 clamp(1rem, 3vw, 2rem);
+    }
+
+    /* ===== Secciones ===== */
+    .seccion {
+      background-color: var(--color-blanco);
+      border-radius: 12px;
+      padding: clamp(1rem, calc(1rem + 2vw), 3rem);
+      margin-bottom: clamp(1rem, 3vw, 2rem);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .seccion h2 {
+      color: var(--color-primario);
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      margin-bottom: clamp(0.5rem, 1.5vw, 1rem);
+      padding-bottom: 0.5rem;
+      border-bottom: 3px solid var(--color-acento);
+    }
+
+    .seccion h3 {
+      color: var(--color-secundario);
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .seccion p {
+      max-width: clamp(300px, 70%, 800px);
+      margin-bottom: 1rem;
+    }
+
+    .codigo-ejemplo {
+      background-color: #2c3e50;
+      color: #ecf0f1;
+      padding: clamp(0.5rem, 2vw, 1.5rem);
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 1rem 0;
+      font-family: 'Consolas', 'Courier New', monospace;
+      font-size: clamp(0.75rem, 1.5vw, 0.95rem);
+    }
+
+    /* ===== Tarjeta de perfil con min() ===== */
+    .tarjeta-perfil {
+      width: min(100%, 500px);
+      margin: 1rem auto;
+      background-color: var(--color-primario);
+      color: var(--color-blanco);
+      border-radius: 12px;
+      padding: min(5vw, 32px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .tarjeta-perfil h3 {
+      color: var(--color-acento);
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      margin-bottom: 0.5rem;
+    }
+
+    .tarjeta-perfil .cargo {
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
+      opacity: 0.9;
+      margin-bottom: 1rem;
+    }
+
+    /* ===== Grid responsive con min() en grid-template ===== */
+    .grid-habilidades {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+      gap: clamp(0.5rem, 2vw, 1rem);
+      margin: 1rem 0;
+    }
+
+    .habilidad-item {
+      background-color: var(--color-secundario);
+      color: var(--color-blanco);
+      padding: clamp(0.5rem, 2vw, 1rem);
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    /* ===== Sidebar + contenido con max() ===== */
+    .layout-dos-columnas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: clamp(1rem, 2vw, 2rem);
+      margin: 1rem 0;
+    }
+
+    .sidebar-info {
+      width: max(250px, 25%);
+      background-color: var(--color-acento);
+      color: var(--color-texto);
+      padding: clamp(0.5rem, 2vw, 1.5rem);
+      border-radius: 8px;
+    }
+
+    .contenido-principal {
+      flex: 1;
+      min-width: min(100%, 400px);
+      background-color: var(--color-fondo);
+      padding: clamp(0.5rem, 2vw, 1.5rem);
+      border-radius: 8px;
+      border: 2px solid var(--color-secundario);
+    }
+
+    /* ===== Botones con calc() ===== */
+    .grupo-botones {
+      display: flex;
+      flex-wrap: wrap;
+      gap: calc(0.5rem + 4px);
+      margin-top: 1rem;
+    }
+
+    .boton {
+      background-color: var(--color-secundario);
+      color: var(--color-blanco);
+      border: none;
+      padding: calc(0.5rem + 2px) calc(1rem + 8px);
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: var(--fuente-principal);
+      font-weight: bold;
+      font-size: clamp(0.85rem, 1.5vw, 1rem);
+      transition: transform 0.2s ease;
+    }
+
+    .boton:hover {
+      transform: scale(1.05);
+    }
+
+    .boton-acento {
+      background-color: var(--color-acento);
+      color: var(--color-texto);
+    }
+
+    /* ===== Footer con calc() ===== */
+    .pie-pagina {
+      background-color: var(--color-primario);
+      color: var(--color-blanco);
+      text-align: center;
+      padding: calc(1rem + 8px) clamp(1rem, 3vw, 2rem);
+      margin-top: 2rem;
+    }
+
+    .pie-pagina p {
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="barra-superior">
+    <h1 class="titulo-principal">Funciones Modernas de CSS</h1>
+    <p class="subtitulo">calc() | clamp() | min() | max() - Yamil N., TextilPro S.A.</p>
+  </header>
+
+  <main class="contenedor">
+
+    <section class="seccion">
+      <h2>1. calc() - La Calculadora</h2>
+      <p>Permite mezclar unidades como <code>px</code>, <code>%</code>, <code>rem</code>, <code>vw</code> en operaciones matematicas.</p>
+      <div class="codigo-ejemplo">
+        padding: calc(1rem + 8px);<br>
+        width: calc(100% - 200px);<br>
+        margin-top: calc(2rem * 1.5);
+      </div>
+      <p>Esta barra superior usa: <code>padding: calc(1rem + 8px) calc(2rem + 10px)</code></p>
+    </section>
+
+    <section class="seccion">
+      <h2>2. clamp() - Control Total del Tamanio</h2>
+      <p>Define un valor minimo, uno ideal y uno maximo. El navegador elige automaticamente segun el viewport.</p>
+      <div class="codigo-ejemplo">
+        font-size: clamp(1.5rem, 5vw, 3rem);<br>
+        max-width: clamp(300px, 60%, 700px);<br>
+        padding: clamp(1rem, calc(1rem + 2vw), 3rem);
+      </div>
+      <p>Redimensiona la ventana y observa como el titulo cambia suavemente entre 1.5rem y 3rem.</p>
+      <h3>Perfil de Yamil N.</h3>
+      <div class="tarjeta-perfil">
+        <h3>Yamil N.</h3>
+        <p class="cargo">Ingeniero Industrial - TextilPro S.A.</p>
+        <p>Especialista en Lean Manufacturing, Kaizen y mejora continua de procesos productivos. Ubicado en La Paz, Bolivia.</p>
+      </div>
+    </section>
+
+    <section class="seccion">
+      <h2>3. min() - Limite Superior</h2>
+      <p>Elige el valor mas pequenio. Ideal para "nunca mas grande que X".</p>
+      <div class="codigo-ejemplo">
+        width: min(100%, 500px);<br>
+        padding: min(5vw, 32px);
+      </div>
+      <p>La tarjeta de perfil usa <code>width: min(100%, 500px)</code> - en movil ocupa todo el ancho, en escritorio se limita a 500px.</p>
+    </section>
+
+    <section class="seccion">
+      <h2>4. max() - Limite Inferior</h2>
+      <p>Elige el valor mas grande. Ideal para "siempre al menos X".</p>
+      <div class="codigo-ejemplo">
+        width: max(250px, 30%);
+      </div>
+      <p>La barra lateral usa <code>width: max(250px, 30%)</code> - garantiza un minimo legible incluso en pantallas pequenias.</p>
+
+      <div class="layout-dos-columnas">
+        <aside class="sidebar-info">
+          <h3>Datos Rapidoss</h3>
+          <p><strong>Nombre:</strong> Yamil N.</p>
+          <p><strong>Cargo:</strong> Ingeniero Industrial</p>
+          <p><strong>Empresa:</strong> TextilPro S.A.</p>
+          <p><strong>Ubicacion:</strong> La Paz, Bolivia</p>
+        </aside>
+        <div class="contenido-principal">
+          <h3>Experiencia Profesional</h3>
+          <p>Lider de optimizacion de procesos en TextilPro S.A. con enfoque en Lean Manufacturing. Responsable de implementar sistemas de mejora continua que redujeron desperdicios en un 35% y mejoraron la eficiencia productiva.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion">
+      <h2>5. Habilidades - Grid con min()</h2>
+      <div class="grid-habilidades">
+        <div class="habilidad-item">Lean Manufacturing</div>
+        <div class="habilidad-item">Kaizen</div>
+        <div class="habilidad-item">Six Sigma</div>
+        <div class="habilidad-item">Gestion de Procesos</div>
+        <div class="habilidad-item">Mejora Continua</div>
+        <div class="habilidad-item">Ingenieria Industrial</div>
+      </div>
+    </section>
+
+    <section class="seccion">
+      <h2>6. Combinacion Avanzada</h2>
+      <p>Las funciones se pueden combinar entre si para lograr un control total:</p>
+      <div class="codigo-ejemplo">
+        padding: clamp(1rem, calc(1rem + 2vw), 3rem);<br>
+        font-size: clamp(0.85rem, calc(0.75rem + 0.5vw), 1.1rem);
+      </div>
+      <div class="grupo-botones">
+        <button class="boton">Contactar</button>
+        <button class="boton boton-acento">Ver Portafolio</button>
+        <button class="boton">Descargar CV</button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="pie-pagina">
+    <p>Yamil N. - Ingeniero Industrial - TextilPro S.A. - La Paz, Bolivia</p>
+    <p>Curso CSS Avanzado - Funciones Modernas</p>
+  </footer>
+
+</body>
+</html>

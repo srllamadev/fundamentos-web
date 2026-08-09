@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Grid - Yamil N | TextilPro S.A.</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* ===== LAYOUT PRINCIPAL CON GRID ===== */
+    .page-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      grid-template-rows: 70px 1fr 50px;
+      grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+      min-height: 100vh;
+    }
+
+    .page-header {
+      grid-area: header;
+      background-color: #1a5276;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 30px;
+    }
+
+    .page-header .logo {
+      color: #f39c12;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+
+    .page-header .perfil-info {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .page-sidebar {
+      grid-area: sidebar;
+      background-color: #2e86c1;
+      padding: 20px;
+      color: white;
+    }
+
+    .page-sidebar h4 {
+      color: #f39c12;
+      margin-bottom: 15px;
+    }
+
+    .page-sidebar ul {
+      list-style: none;
+    }
+
+    .page-sidebar ul li {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .page-sidebar ul li:hover {
+      color: #f39c12;
+    }
+
+    .page-main {
+      grid-area: main;
+      padding: 30px;
+      overflow-y: auto;
+    }
+
+    .page-footer {
+      grid-area: footer;
+      background-color: #1a5276;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+    }
+
+    /* ===== SECCIONES DE EJEMPLO ===== */
+    .ejemplo {
+      background: white;
+      border-radius: 10px;
+      padding: 25px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .ejemplo h3 {
+      color: #1a5276;
+      border-bottom: 3px solid #2e86c1;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    .ejemplo p {
+      margin-bottom: 15px;
+    }
+
+    /* ===== DEMO: GRID TEMPLATE COLUMNS ===== */
+    .demo-columnas {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .demo-columnas .col-item {
+      background-color: #2e86c1;
+      color: white;
+      padding: 15px;
+      border-radius: 6px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 0.85rem;
+    }
+
+    .demo-columnas.cols-px {
+      grid-template-columns: 150px 150px 150px;
+    }
+
+    .demo-columnas.cols-fr {
+      grid-template-columns: 1fr 2fr 1fr;
+    }
+
+    .demo-columnas.cols-repeat {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .demo-columnas.cols-mixto {
+      grid-template-columns: 200px 1fr 100px;
+    }
+
+    .demo-columnas .label {
+      grid-column: 1 / -1;
+      font-weight: bold;
+      color: #1a5276;
+      font-size: 0.85rem;
+      padding: 5px 0;
+    }
+
+    /* ===== DEMO: AREAS NOMBRADAS ===== */
+    .demo-areas {
+      display: grid;
+      grid-template-columns: 150px 1fr 150px;
+      grid-template-rows: 60px 1fr 50px;
+      grid-template-areas:
+        "header header header"
+        "sidebar main aside"
+        "footer footer footer";
+      gap: 8px;
+      min-height: 300px;
+      border: 2px solid #1a5276;
+      border-radius: 8px;
+      padding: 8px;
+    }
+
+    .demo-areas .area {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 0.85rem;
+    }
+
+    .demo-areas .area-header {
+      grid-area: header;
+      background-color: #1a5276;
+      color: #f39c12;
+    }
+
+    .demo-areas .area-sidebar {
+      grid-area: sidebar;
+      background-color: #2e86c1;
+      color: white;
+    }
+
+    .demo-areas .area-main {
+      grid-area: main;
+      background-color: #f0f4f8;
+      color: #1a5276;
+      border: 2px dashed #2e86c1;
+    }
+
+    .demo-areas .area-aside {
+      grid-area: aside;
+      background-color: #f39c12;
+      color: #1a5276;
+    }
+
+    .demo-areas .area-footer {
+      grid-area: footer;
+      background-color: #1a5276;
+      color: white;
+    }
+
+    /* ===== DEMO: DASHBOARD TEXTILPRO ===== */
+    .dashboard {
+      display: grid;
+      grid-template-columns: 200px 1fr 250px;
+      grid-template-rows: 60px 1fr;
+      grid-template-areas:
+        "dash-header dash-header dash-header"
+        "dash-sidebar dash-content dash-aside";
+      gap: 15px;
+      min-height: 400px;
+    }
+
+    .dash-header {
+      grid-area: dash-header;
+      background-color: #1a5276;
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .dash-sidebar {
+      grid-area: dash-sidebar;
+      background-color: #2e86c1;
+      border-radius: 8px;
+      padding: 15px;
+      color: white;
+    }
+
+    .dash-sidebar h5 {
+      color: #f39c12;
+      margin-bottom: 10px;
+    }
+
+    .dash-sidebar .stat {
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.85rem;
+    }
+
+    .dash-content {
+      grid-area: dash-content;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 15px;
+      align-content: start;
+    }
+
+    .dash-card {
+      background: white;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .dash-card .card-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .dash-card .card-title {
+      font-weight: bold;
+      color: #1a5276;
+      font-size: 0.9rem;
+      margin-bottom: 5px;
+    }
+
+    .dash-card .card-value {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #2e86c1;
+    }
+
+    .dash-card .card-label {
+      font-size: 0.8rem;
+      color: #777;
+    }
+
+    .dash-aside {
+      grid-area: dash-aside;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      border: 2px solid #e0e0e0;
+      padding: 15px;
+    }
+
+    .dash-aside h5 {
+      color: #1a5276;
+      margin-bottom: 10px;
+    }
+
+    .dash-aside .notif {
+      padding: 10px;
+      background: white;
+      border-left: 3px solid #f39c12;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      font-size: 0.8rem;
+    }
+
+    .dash-aside .notif .notif-title {
+      font-weight: bold;
+      color: #1a5276;
+      margin-bottom: 3px;
+    }
+
+    /* ===== DEMO: GALERIA RESPONSIVE ===== */
+    .demo-galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+    }
+
+    .demo-galeria .producto {
+      background: white;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .demo-galeria .producto .img-placeholder {
+      background: linear-gradient(135deg, #2e86c1, #1a5276);
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2rem;
+    }
+
+    .demo-galeria .producto .producto-info {
+      padding: 12px;
+    }
+
+    .demo-galeria .producto .producto-info .nombre {
+      font-weight: bold;
+      color: #1a5276;
+      margin-bottom: 5px;
+      font-size: 0.9rem;
+    }
+
+    .demo-galeria .producto .producto-info .precio {
+      color: #f39c12;
+      font-weight: bold;
+    }
+
+    /* ===== DEMO: GRID COLUMN / ROW SPAN ===== */
+    .demo-span {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 80px);
+      gap: 10px;
+    }
+
+    .demo-span .span-item {
+      background-color: #2e86c1;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 0.8rem;
+      text-align: center;
+      padding: 5px;
+    }
+
+    .demo-span .span-2col {
+      grid-column: span 2;
+      background-color: #f39c12;
+      color: #1a5276;
+    }
+
+    .demo-span .span-2row {
+      grid-row: span 2;
+      background-color: #1a5276;
+    }
+
+    .demo-span .span-2x2 {
+      grid-column: span 2;
+      grid-row: span 2;
+      background-color: #f39c12;
+      color: #1a5276;
+    }
+
+    code {
+      background-color: #e8e8e8;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 0.9em;
+      color: #1a5276;
+    }
+
+    .label-tag {
+      display: inline-block;
+      background-color: #2e86c1;
+      color: white;
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LAYOUT PRINCIPAL CON GRID AREAS -->
+  <div class="page-layout">
+
+    <header class="page-header">
+      <span class="logo">TextilPro S.A.</span>
+      <span class="perfil-info">Yamil N | Ingeniero Industrial | La Paz, Bolivia</span>
+    </header>
+
+    <aside class="page-sidebar">
+      <h4>Navegacion</h4>
+      <ul>
+        <li>Dashboard</li>
+        <li>Produccion</li>
+        <li>Inventario</li>
+        <li>Personal</li>
+        <li>Reportes</li>
+      </ul>
+    </aside>
+
+    <main class="page-main">
+
+      <!-- INTRO -->
+      <section class="ejemplo">
+        <h3>CSS Grid: Layouts en dos dimensiones</h3>
+        <p>Esta pagina es un ejemplo en vivo de Grid. El layout general usa <code>grid-template-areas</code>:</p>
+        <div style="background: #f0f4f8; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 0.85rem; margin-bottom: 15px;">
+          "header header"<br>
+          "sidebar main"<br>
+          "footer footer"
+        </div>
+        <p>"Flexbox es la linea de ensamblaje, Grid es el plano de toda la fabrica." - Yamil N</p>
+      </section>
+
+      <!-- COLUMNAS -->
+      <section class="ejemplo">
+        <h3>1. grid-template-columns</h3>
+
+        <span class="label-tag">150px 150px 150px</span>
+        <div class="demo-columnas cols-px">
+          <div class="col-item">150px</div>
+          <div class="col-item">150px</div>
+          <div class="col-item">150px</div>
+        </div>
+
+        <span class="label-tag">1fr 2fr 1fr</span>
+        <div class="demo-columnas cols-fr">
+          <div class="col-item">1fr</div>
+          <div class="col-item">2fr (doble)</div>
+          <div class="col-item">1fr</div>
+        </div>
+
+        <span class="label-tag">repeat(4, 1fr)</span>
+        <div class="demo-columnas cols-repeat">
+          <div class="col-item">1fr</div>
+          <div class="col-item">1fr</div>
+          <div class="col-item">1fr</div>
+          <div class="col-item">1fr</div>
+        </div>
+
+        <span class="label-tag">200px 1fr 100px</span>
+        <div class="demo-columnas cols-mixto">
+          <div class="col-item">200px fijo</div>
+          <div class="col-item">1fr (resto)</div>
+          <div class="col-item">100px</div>
+        </div>
+      </section>
+
+      <!-- AREAS NOMBRADAS -->
+      <section class="ejemplo">
+        <h3>2. grid-template-areas</h3>
+        <p>La forma mas visual de crear layouts. Cada area se nombra y se asigna a un elemento:</p>
+        <div class="demo-areas">
+          <div class="area area-header">HEADER</div>
+          <div class="area area-sidebar">SIDEBAR</div>
+          <div class="area area-main">MAIN (contenido principal)</div>
+          <div class="area area-aside">ASIDE</div>
+          <div class="area area-footer">FOOTER</div>
+        </div>
+      </section>
+
+      <!-- SPAN -->
+      <section class="ejemplo">
+        <h3>3. span: abarcar multiples columnas/filas</h3>
+        <p>Los items pueden ocupar mas de una celda con <code>span</code>:</p>
+        <div class="demo-span">
+          <div class="span-item">1x1</div>
+          <div class="span-item span-2col">span 2 columnas</div>
+          <div class="span-item">1x1</div>
+          <div class="span-item span-2row">span 2 filas</div>
+          <div class="span-item">1x1</div>
+          <div class="span-item">1x1</div>
+          <div class="span-item">1x1</div>
+          <div class="span-item span-2x2">span 2x2</div>
+          <div class="span-item">1x1</div>
+        </div>
+      </section>
+
+      <!-- DASHBOARD -->
+      <section class="ejemplo">
+        <h3>4. Dashboard de TextilPro (caso practico)</h3>
+        <p>Grid para el layout general + Grid responsivo para las tarjetas dentro del area principal:</p>
+        <div class="dashboard">
+          <div class="dash-header">Dashboard de Produccion - TextilPro S.A.</div>
+          <div class="dash-sidebar">
+            <h5>Lineas</h5>
+            <div class="stat">Linea A: Activa</div>
+            <div class="stat">Linea B: Activa</div>
+            <div class="stat">Linea C: Mant.</div>
+            <div class="stat">Linea D: Activa</div>
+          </div>
+          <div class="dash-content">
+            <div class="dash-card">
+              <div class="card-icon">📦</div>
+              <div class="card-title">Produccion Hoy</div>
+              <div class="card-value">2,450</div>
+              <div class="card-label">unidades</div>
+            </div>
+            <div class="dash-card">
+              <div class="card-icon">⚡</div>
+              <div class="card-title">Eficiencia</div>
+              <div class="card-value">91%</div>
+              <div class="card-label">promedio lineas</div>
+            </div>
+            <div class="dash-card">
+              <div class="card-icon">👥</div>
+              <div class="card-title">Personal</div>
+              <div class="card-value">87</div>
+              <div class="card-label">operarios activos</div>
+            </div>
+            <div class="dash-card">
+              <div class="card-icon">🕐</div>
+              <div class="card-title">Tiempo ciclo</div>
+              <div class="card-value">4.2s</div>
+              <div class="card-label">promedio</div>
+            </div>
+            <div class="dash-card">
+              <div class="card-icon">✅</div>
+              <div class="card-title">Ordenes</div>
+              <div class="card-value">12</div>
+              <div class="card-label">en proceso</div>
+            </div>
+            <div class="dash-card">
+              <div class="card-icon">📊</div>
+              <div class="card-title">Defectos</div>
+              <div class="card-value">0.3%</div>
+              <div class="card-label">tasa del dia</div>
+            </div>
+          </div>
+          <div class="dash-aside">
+            <h5>Notificaciones</h5>
+            <div class="notif">
+              <div class="notif-title">Mantenimiento programado</div>
+              Linea C requiere servicio preventivo a las 16:00
+            </div>
+            <div class="notif">
+              <div class="notif-title">Entrega de materia prima</div>
+              Proveedor de tela confirma llegada jueves 10:00
+            </div>
+            <div class="notif">
+              <div class="notif-title">Nueva orden</div>
+              Orden #2024-089: 500 camisas blancas
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GALERIA RESPONSIVE -->
+      <section class="ejemplo">
+        <h3>5. Galeria responsive (auto-fill)</h3>
+        <p>Usa <code>repeat(auto-fill, minmax(200px, 1fr))</code> para ajustar columnas al tamaño de pantalla:</p>
+        <div class="demo-galeria">
+          <div class="producto">
+            <div class="img-placeholder">👔</div>
+            <div class="producto-info">
+              <div class="nombre">Camisa Industrial</div>
+              <div class="precio">Bs. 120</div>
+            </div>
+          </div>
+          <div class="producto">
+            <div class="img-placeholder">👖</div>
+            <div class="producto-info">
+              <div class="nombre">Pantalon Trabajo</div>
+              <div class="precio">Bs. 150</div>
+            </div>
+          </div>
+          <div class="producto">
+            <div class="img-placeholder">🦺</div>
+            <div class="producto-info">
+              <div class="nombre">Chaleco Seguridad</div>
+              <div class="precio">Bs. 85</div>
+            </div>
+          </div>
+          <div class="producto">
+            <div class="img-placeholder">🧢</div>
+            <div class="producto-info">
+              <div class="nombre">Gorra Corporativa</div>
+              <div class="precio">Bs. 45</div>
+            </div>
+          </div>
+          <div class="producto">
+            <div class="img-placeholder">👟</div>
+            <div class="producto-info">
+              <div class="nombre">Botas Industriales</div>
+              <div class="precio">Bs. 350</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="page-footer">
+      Curso de Fundamentos Web - Seccion 04: CSS Grid | Yamil N | TextilPro S.A.
+    </footer>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accesibilidad y Semantica - Perfil Yamil N.</title>
+  <style>
+    /* ============================================
+       ACCESIBILIDAD Y SEMANTICA CSS
+       Yamil N. - Ingeniero Industrial - TextilPro S.A.
+       ============================================ */
+
+    :root {
+      --color-primario: #1a5276;
+      --color-secundario: #2e86c1;
+      --color-acento: #f39c12;
+      --color-fondo: #f5f5f5;
+      --color-texto: #333333;
+      --color-blanco: #ffffff;
+      --color-error: #c0392b;
+      --color-exito: #27ae60;
+      --fuente-principal: 'Segoe UI', Arial, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--color-fondo);
+      color: var(--color-texto);
+      font-family: var(--fuente-principal);
+      line-height: 1.6;
+    }
+
+    /* ===== SKIP NAVIGATION ===== */
+    .skip-nav {
+      position: absolute;
+      top: -100%;
+      left: 16px;
+      background: var(--color-primario);
+      color: var(--color-blanco);
+      padding: 8px 16px;
+      border-radius: 0 0 8px 8px;
+      z-index: 1000;
+      text-decoration: none;
+      font-weight: bold;
+      transition: top 0.2s ease;
+    }
+
+    .skip-nav:focus {
+      top: 0;
+    }
+
+    /* ===== FOCUS STATES GLOBALES ===== */
+    *:focus-visible {
+      outline: 3px solid var(--color-secundario);
+      outline-offset: 2px;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background-color: var(--color-primario);
+      color: var(--color-blanco);
+      padding: 24px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      opacity: 0.9;
+    }
+
+    /* ===== NAVEGACION ===== */
+    nav {
+      background-color: var(--color-blanco);
+      border-bottom: 3px solid var(--color-secundario);
+      padding: 12px 24px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    nav a {
+      color: var(--color-primario);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: background-color 0.2s ease;
+    }
+
+    nav a:hover {
+      background-color: #eaf2f8;
+    }
+
+    nav a:focus-visible {
+      outline: 3px solid var(--color-secundario);
+      outline-offset: 2px;
+      background-color: #eaf2f8;
+    }
+
+    /* ===== MAIN ===== */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    /* ===== SECCIONES ===== */
+    section {
+      background-color: var(--color-blanco);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    section h2 {
+      color: var(--color-primario);
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 3px solid var(--color-acento);
+    }
+
+    section h3 {
+      color: var(--color-secundario);
+      margin-top: 16px;
+      margin-bottom: 8px;
+    }
+
+    section p {
+      margin-bottom: 12px;
+    }
+
+    /* ===== CLASE SR-ONLY ===== */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ===== DEMO: CONTRASTE DE COLORES ===== */
+    .demo-contraste {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin: 16px 0;
+    }
+
+    .muestra-contraste {
+      padding: 16px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .contraste-bueno {
+      background-color: var(--color-fondo);
+      color: var(--color-primario);
+      border: 2px solid var(--color-exito);
+    }
+
+    .contraste-bueno-texto {
+      background-color: var(--color-blanco);
+      color: var(--color-texto);
+      border: 2px solid var(--color-exito);
+    }
+
+    .contraste-malo {
+      background-color: var(--color-blanco);
+      color: #bdc3c7;
+      border: 2px solid var(--color-error);
+    }
+
+    .contraste-advertencia {
+      background-color: var(--color-blanco);
+      color: var(--color-acento);
+      border: 2px solid var(--color-acento);
+    }
+
+    /* ===== DEMO: FOCUS STATES ===== */
+    .demo-focus {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin: 16px 0;
+    }
+
+    .boton-focus {
+      padding: 12px 24px;
+      border-radius: 8px;
+      border: 2px solid transparent;
+      font-family: var(--fuente-principal);
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+
+    .boton-focus--outline {
+      background-color: var(--color-secundario);
+      color: var(--color-blanco);
+    }
+
+    .boton-focus--outline:focus-visible {
+      outline: 4px solid var(--color-acento);
+      outline-offset: 3px;
+    }
+
+    .boton-focus--sombra {
+      background-color: var(--color-primario);
+      color: var(--color-blanco);
+    }
+
+    .boton-focus--sombra:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 4px var(--color-fondo), 0 0 0 7px var(--color-acento);
+    }
+
+    .boton-focus--fondo {
+      background-color: var(--color-blanco);
+      color: var(--color-primario);
+      border-color: var(--color-primario);
+    }
+
+    .boton-focus--fondo:focus-visible {
+      outline: none;
+      background-color: var(--color-primario);
+      color: var(--color-blanco);
+    }
+
+    /* ===== DEMO: REDUCED MOTION ===== */
+    .demo-animacion {
+      margin: 16px 0;
+    }
+
+    .caja-animada {
+      background-color: var(--color-secundario);
+      color: var(--color-blanco);
+      padding: 16px;
+      border-radius: 8px;
+      text-align: center;
+      animation: fade-in 2s ease-in-out;
+    }
+
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .caja-animada {
+        animation: none;
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    /* ===== PERFIL SEMANTICO ===== */
+    .perfil-articulo {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .perfil-articulo__avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: var(--color-primario);
+      color: var(--color-blanco);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .perfil-articulo__info h3 {
+      color: var(--color-primario);
+      margin-top: 0;
+      margin-bottom: 4px;
+    }
+
+    .perfil-articulo__info .cargo {
+      color: var(--color-secundario);
+      font-weight: 600;
+    }
+
+    .perfil-articulo__info .descripcion {
+      margin-top: 12px;
+    }
+
+    /* ===== FORMULARIO ACCESIBLE ===== */
+    .form-contacto {
+      margin-top: 16px;
+    }
+
+    .form-contacto__grupo {
+      margin-bottom: 16px;
+    }
+
+    .form-contacto__label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: var(--color-primario);
+    }
+
+    .form-contacto__input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      font-family: var(--fuente-principal);
+      font-size: 1rem;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-contacto__input:focus-visible {
+      outline: none;
+      border-color: var(--color-secundario);
+      box-shadow: 0 0 0 3px rgba(46, 134, 193, 0.2);
+    }
+
+    .form-contacto__input--error {
+      border-color: var(--color-error);
+    }
+
+    .form-contacto__mensaje-error {
+      color: var(--color-error);
+      font-size: 0.85rem;
+      margin-top: 4px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .form-contacto__boton {
+      background-color: var(--color-secundario);
+      color: var(--color-blanco);
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-family: var(--fuente-principal);
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+
+    .form-contacto__boton:hover {
+      opacity: 0.9;
+    }
+
+    .form-contacto__boton:focus-visible {
+      outline: 3px solid var(--color-acento);
+      outline-offset: 3px;
+    }
+
+    /* ===== BOTON CON SR-ONLY ===== */
+    .boton-icono {
+      background-color: var(--color-primario);
+      color: var(--color-blanco);
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .boton-icono:focus-visible {
+      outline: 3px solid var(--color-acento);
+      outline-offset: 3px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background-color: var(--color-primario);
+      color: var(--color-blanco);
+      text-align: center;
+      padding: 24px;
+      margin-top: 24px;
+    }
+
+    /* ===== INFO BOX ===== */
+    .info-box {
+      background-color: #eaf2f8;
+      border-left: 4px solid var(--color-secundario);
+      padding: 16px;
+      border-radius: 0 8px 8px 0;
+      margin: 16px 0;
+    }
+
+    .info-box strong {
+      color: var(--color-primario);
+    }
+
+    .codigo-ejemplo {
+      background-color: #2c3e50;
+      color: #ecf0f1;
+      padding: 16px;
+      border-radius: 8px;
+      font-family: 'Consolas', 'Courier New', monospace;
+      font-size: 0.85rem;
+      overflow-x: auto;
+      margin: 12px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#contenido-principal" class="skip-nav">Saltar al contenido principal</a>
+
+  <header role="banner">
+    <h1>Accesibilidad y Semantica en CSS</h1>
+    <p>Demostracion con el perfil de Yamil N. - TextilPro S.A.</p>
+  </header>
+
+  <nav role="navigation" aria-label="Navegacion principal">
+    <ul>
+      <li><a href="#contraste">Contraste</a></li>
+      <li><a href="#focus">Focus States</a></li>
+      <li><a href="#motion">Reduced Motion</a></li>
+      <li><a href="#semantica">HTML Semantico</a></li>
+      <li><a href="#formulario">Formulario</a></li>
+    </ul>
+  </nav>
+
+  <main id="contenido-principal" role="main">
+
+    <section id="contraste" aria-labelledby="titulo-contraste">
+      <h2 id="titulo-contraste">1. Contraste de Colores (WCAG)</h2>
+      <p>El contraste es la diferencia de luminosidad entre texto y fondo. WCAG exige un ratio minimo de <strong>4.5:1</strong> para texto normal y <strong>3:1</strong> para texto grande.</p>
+
+      <div class="demo-contraste">
+        <div class="muestra-contraste contraste-bueno">
+          <p>#1a5276 sobre #f5f5f5</p>
+          <p>Ratio 7.2:1</p>
+          <span aria-hidden="true">✅ Bien</span>
+          <span class="sr-only">Contraste correcto, ratio 7.2 a 1</span>
+        </div>
+        <div class="muestra-contraste contraste-bueno-texto">
+          <p>#333333 sobre #ffffff</p>
+          <p>Ratio 12.6:1</p>
+          <span aria-hidden="true">✅ Excelente</span>
+          <span class="sr-only">Contraste excelente, ratio 12.6 a 1</span>
+        </div>
+        <div class="muestra-contraste contraste-malo">
+          <p>#bdc3c7 sobre #ffffff</p>
+          <p>Ratio 1.6:1</p>
+          <span aria-hidden="true">❌ Ilegible</span>
+          <span class="sr-only">Contraste insuficiente, ratio 1.6 a 1, no cumple WCAG</span>
+        </div>
+        <div class="muestra-contraste contraste-advertencia">
+          <p>#f39c12 sobre #ffffff</p>
+          <p>Ratio 2.4:1</p>
+          <span aria-hidden="true">⚠️ Solo grande</span>
+          <span class="sr-only">Contraste bajo, solo valido para texto grande o iconos</span>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <strong>Regla:</strong> El color acento (#f39c12) sobre blanco solo alcanza ratio 2.4:1. Por eso se usa para elementos grandes o decorativos, nunca para texto pequenio.
+      </div>
+    </section>
+
+    <section id="focus" aria-labelledby="titulo-focus">
+      <h2 id="titulo-focus">2. Focus States Visibles</h2>
+      <p>Navega con <strong>Tab</strong> para ver los diferentes estilos de focus. Nunca elimines el outline sin proveer una alternativa visible.</p>
+
+      <div class="demo-focus">
+        <button class="boton-focus boton-focus--outline">
+          Focus: Outline
+        </button>
+        <button class="boton-focus boton-focus--sombra">
+          Focus: Sombra
+        </button>
+        <button class="boton-focus boton-focus--fondo">
+          Focus: Fondo
+        </button>
+      </div>
+
+      <div class="codigo-ejemplo">
+        /* Outline solido */<br>
+        .boton:focus-visible { outline: 4px solid #f39c12; }<br><br>
+        /* Sombra */<br>
+        .boton:focus-visible { box-shadow: 0 0 0 4px #f39c12; }<br><br>
+        /* Cambio de fondo */<br>
+        .boton:focus-visible { background: #1a5276; color: #fff; }
+      </div>
+    </section>
+
+    <section id="motion" aria-labelledby="titulo-motion">
+      <h2 id="titulo-motion">3. prefers-reduced-motion</h2>
+      <p>Algunas personas sufren mareos con animaciones. CSS puede detectar su preferencia y desactivarlas.</p>
+
+      <div class="demo-animacion">
+        <div class="caja-animada">
+          <p>Esta caja tiene una animacion fade-in.</p>
+          <p>Si tu sistema tiene "Reducir movimiento" activado, aparece instantaneamente.</p>
+        </div>
+      </div>
+
+      <div class="codigo-ejemplo">
+        @media (prefers-reduced-motion: reduce) {<br>
+        &nbsp;&nbsp;*, *::before, *::after {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;animation-duration: 0.01ms !important;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;transition-duration: 0.01ms !important;<br>
+        &nbsp;&nbsp;}<br>
+        }
+      </div>
+
+      <div class="info-box">
+        <strong>Tip:</strong> Activa "Reducir movimiento" en la configuracion de tu sistema operativo para probar este comportamiento.
+      </div>
+    </section>
+
+    <section id="semantica" aria-labelledby="titulo-semantica">
+      <h2 id="titulo-semantica">4. HTML Semantico + CSS</h2>
+      <p>Esta pagina usa HTML semantico: <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;footer&gt;</code>. Los lectores de pantalla reconocen la estructura automaticamente.</p>
+
+      <article aria-labelledby="titulo-perfil">
+        <h3 id="titulo-perfil">Perfil de Yamil N.</h3>
+        <div class="perfil-articulo">
+          <div class="perfil-articulo__avatar" role="img" aria-label="Avatar de Yamil N. con iniciales YN">
+            YN
+          </div>
+          <div class="perfil-articulo__info">
+            <h3>Yamil N.</h3>
+            <p class="cargo">Ingeniero Industrial - TextilPro S.A.</p>
+            <p class="descripcion">
+              Especialista en Lean Manufacturing y mejora continua.
+              Basado en La Paz, Bolivia. Experto en optimizacion de
+              procesos productivos en la industria textil.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <div class="codigo-ejemplo">
+        &lt;header role="banner"&gt;...&lt;/header&gt;<br>
+        &lt;nav role="navigation" aria-label="Principal"&gt;...&lt;/nav&gt;<br>
+        &lt;main id="contenido-principal" role="main"&gt;<br>
+        &nbsp;&nbsp;&lt;section aria-labelledby="titulo-seccion"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;article aria-labelledby="titulo-articulo"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;...&lt;/article&gt;<br>
+        &nbsp;&nbsp;&lt;/section&gt;<br>
+        &lt;/main&gt;<br>
+        &lt;footer role="contentinfo"&gt;...&lt;/footer&gt;
+      </div>
+    </section>
+
+    <section id="formulario" aria-labelledby="titulo-formulario">
+      <h2 id="titulo-formulario">5. Formulario Accesible</h2>
+      <p>Cada campo tiene su <code>&lt;label&gt;</code> vinculado con <code>for</code>/<code>id</code>. Los errores se indican con color, icono y texto (no solo color).</p>
+
+      <form class="form-contacto" aria-label="Formulario de contacto para Yamil N.">
+        <div class="form-contacto__grupo">
+          <label class="form-contacto__label" for="nombre">Nombre completo</label>
+          <input
+            class="form-contacto__input"
+            type="text"
+            id="nombre"
+            name="nombre"
+            placeholder="Ej: Maria Lopez"
+            aria-required="true"
+          >
+        </div>
+
+        <div class="form-contacto__grupo">
+          <label class="form-contacto__label" for="email">Correo electronico</label>
+          <input
+            class="form-contacto__input form-contacto__input--error"
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Ej: maria@empresa.com"
+            aria-required="true"
+            aria-describedby="email-error"
+            aria-invalid="true"
+          >
+          <p class="form-contacto__mensaje-error" id="email-error">
+            <span aria-hidden="true">⚠</span>
+            Correo electronico no valido
+          </p>
+        </div>
+
+        <div class="form-contacto__grupo">
+          <label class="form-contacto__label" for="mensaje">Mensaje</label>
+          <textarea
+            class="form-contacto__input"
+            id="mensaje"
+            name="mensaje"
+            rows="4"
+            placeholder="Escribe tu mensaje a Yamil..."
+          ></textarea>
+        </div>
+
+        <button type="submit" class="form-contacto__boton">
+          Enviar mensaje a Yamil
+        </button>
+      </form>
+
+      <h3>Boton con icono (sr-only para screen readers)</h3>
+      <p>El siguiente boton muestra solo un icono, pero el screen reader lee "Buscar en el perfil de Yamil N." gracias a la clase <code>.sr-only</code>:</p>
+      <button class="boton-icono" aria-label="Buscar en el perfil de Yamil N.">
+        <span aria-hidden="true">&#128269;</span>
+        <span class="sr-only">Buscar en el perfil de Yamil N.</span>
+      </button>
+    </section>
+
+  </main>
+
+  <footer role="contentinfo">
+    <p>Yamil N. - Ingeniero Industrial - TextilPro S.A. - La Paz, Bolivia</p>
+    <p>Curso CSS - Acccesibilidad y Semantica</p>
+  </footer>
+
+</body>
+</html>

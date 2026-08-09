@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yamil N - Imagenes Responsivas</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        h1 { color: #1a5276; }
+        h2 { color: #2e86c1; }
+        h3 { color: #1a5276; border-bottom: 2px solid #2e86c1; padding-bottom: 8px; }
+        .tarjeta { background: white; padding: 20px; margin: 20px; border-radius: 8px; }
+
+        /* Imagen responsiva basica */
+        .img-basica {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Contenedor con aspect ratio */
+        .img-contenedor {
+            width: 100%;
+            max-width: 600px;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            border-radius: 8px;
+            margin: 20px auto;
+        }
+        .img-contenedor img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* object-fit: contain */
+        .img-contain {
+            width: 300px;
+            height: 200px;
+            object-fit: contain;
+            background-color: #eee;
+            border: 2px solid #2e86c1;
+        }
+
+        /* object-fit: cover */
+        .img-cover {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border: 2px solid #27ae60;
+            border-radius: 8px;
+        }
+
+        /* object-fit: fill */
+        .img-fill {
+            width: 300px;
+            height: 200px;
+            object-fit: fill;
+            border: 2px solid #e74c3c;
+        }
+
+        /* object-position */
+        .img-position {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            object-position: center top;
+            border: 2px solid #f39c12;
+            border-radius: 8px;
+        }
+
+        /* Grid de imagenes */
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .galeria-item {
+            aspect-ratio: 1;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        .galeria-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Imagen con placeholder */
+        .img-placeholder {
+            width: 100%;
+            max-width: 400px;
+            aspect-ratio: 4 / 3;
+            background: linear-gradient(135deg, #1a5276, #2e86c1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tarjeta">
+        <h1>Yamil N</h1>
+        <h2>Imagenes Responsivas</h2>
+    </div>
+
+    <div class="tarjeta">
+        <h3>1. Imagen Responsiva Basica</h3>
+        <p>La regla mas simple: <code>max-width: 100%</code> y <code>height: auto</code>.</p>
+        <img class="img-basica" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800" alt="Ingenieria industrial">
+    </div>
+
+    <div class="tarjeta">
+        <h3>2. object-fit: contain (muestra toda la imagen)</h3>
+        <p>La imagen completa se ve dentro del contenedor, puede haber espacio vacio.</p>
+        <img class="img-contain" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800" alt="Ejemplo contain">
+    </div>
+
+    <div class="tarjeta">
+        <h3>3. object-fit: cover (rellena el contenedor)</h3>
+        <p>La imagen rellena todo el contenedor, puede recortarse.</p>
+        <img class="img-cover" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800" alt="Ejemplo cover">
+    </div>
+
+    <div class="tarjeta">
+        <h3>4. object-fit: fill (deforma la imagen)</h3>
+        <p>La imagen se estira para llenar el contenedor. Generalmente NO recomendado.</p>
+        <img class="img-fill" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800" alt="Ejemplo fill">
+    </div>
+
+    <div class="tarjeta">
+        <h3>5. object-position (controlar el recorte)</h3>
+        <p><code>object-position: center top</code> muestra la parte superior de la imagen.</p>
+        <img class="img-position" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800" alt="Ejemplo position">
+    </div>
+
+    <div class="tarjeta">
+        <h3>6. Contenedor con aspect-ratio</h3>
+        <p><code>aspect-ratio: 16/9</code> mantiene la proporcion siempre.</p>
+        <div class="img-contenedor">
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800" alt="Planta industrial">
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <h3>7. Galeria Responsiva con Grid</h3>
+        <p>Grid con <code>auto-fill</code> y <code>minmax()</code> crea columnas automaticas.</p>
+        <div class="galeria">
+            <div class="galeria-item">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400" alt="Foto 1">
+            </div>
+            <div class="galeria-item">
+                <img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=400" alt="Foto 2">
+            </div>
+            <div class="galeria-item">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=400" alt="Foto 3">
+            </div>
+            <div class="galeria-item">
+                <img src="https://images.unsplash.com/photo-1581092335397-9583eb92d232?w=400" alt="Foto 4">
+            </div>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <h3>8. Placeholder con degradado</h3>
+        <p>Cuando no tienes imagen, usa un degradado como placeholder.</p>
+        <div class="img-placeholder">
+            <p>Foto de perfil de Yamil N</p>
+        </div>
+    </div>
+
+</body>
+</html>

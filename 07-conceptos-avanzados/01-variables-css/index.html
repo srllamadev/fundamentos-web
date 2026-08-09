@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Variables CSS - Perfil Yamil N.</title>
+  <style>
+    /* ============================================
+       VARIABLES CSS - Custom Properties
+       Yamil N. - Ingeniero Industrial - TextilPro S.A.
+       ============================================ */
+
+    /* 1. Declaracion global en :root */
+    :root {
+      --color-primario: #1a5276;
+      --color-secundario: #2e86c1;
+      --color-acento: #f39c12;
+      --color-fondo: #f5f5f5;
+      --color-texto: #333333;
+      --color-blanco: #ffffff;
+      --fuente-principal: 'Segoe UI', Arial, sans-serif;
+      --espaciado-xs: 4px;
+      --espaciado-sm: 8px;
+      --espaciado-md: 16px;
+      --espaciado-lg: 24px;
+      --espaciado-xl: 32px;
+      --radio-borde: 8px;
+      --radio-borde-lg: 12px;
+      --sombra-tarjeta: 0 2px 8px rgba(0, 0, 0, 0.1);
+      --sombra-tarjeta-hover: 0 4px 16px rgba(0, 0, 0, 0.15);
+      --transicion-base: 0.3s ease;
+    }
+
+    /* 2. Tema oscuro */
+    [data-theme="oscuro"] {
+      --color-primario: #5dade2;
+      --color-secundario: #85c1e9;
+      --color-acento: #f5b041;
+      --color-fondo: #1c2833;
+      --color-texto: #ecf0f1;
+      --color-blanco: #2c3e50;
+      --sombra-tarjeta: 0 2px 8px rgba(0, 0, 0, 0.4);
+      --sombra-tarjeta-hover: 0 4px 16px rgba(0, 0, 0, 0.6);
+    }
+
+    /* 3. Estilos base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--color-fondo);
+      color: var(--color-texto);
+      font-family: var(--fuente-principal);
+      padding: var(--espaciado-lg);
+      transition: background-color var(--transicion-base), color var(--transicion-base);
+    }
+
+    .contenedor {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* 4. Encabezado */
+    .encabezado {
+      text-align: center;
+      margin-bottom: var(--espaciado-xl);
+      padding: var(--espaciado-lg);
+      background-color: var(--color-primario);
+      color: var(--color-blanco);
+      border-radius: var(--radio-borde-lg);
+      box-shadow: var(--sombra-tarjeta);
+    }
+
+    .encabezado h1 {
+      font-size: 2rem;
+      margin-bottom: var(--espaciado-sm);
+    }
+
+    .encabezado p {
+      opacity: 0.9;
+    }
+
+    /* 5. Boton de cambio de tema */
+    .boton-tema {
+      background-color: var(--color-acento);
+      color: var(--color-texto);
+      border: none;
+      padding: var(--espaciado-sm) var(--espaciado-md);
+      border-radius: var(--radio-borde);
+      cursor: pointer;
+      font-family: var(--fuente-principal);
+      font-weight: bold;
+      margin-top: var(--espaciado-md);
+      transition: transform var(--transicion-base);
+    }
+
+    .boton-tema:hover {
+      transform: scale(1.05);
+    }
+
+    /* 6. Tarjeta de perfil */
+    .tarjeta-perfil {
+      background-color: var(--color-blanco);
+      border-radius: var(--radio-borde-lg);
+      padding: var(--espaciado-lg);
+      margin-bottom: var(--espaciado-lg);
+      box-shadow: var(--sombra-tarjeta);
+      transition: box-shadow var(--transicion-base), background-color var(--transicion-base);
+    }
+
+    .tarjeta-perfil:hover {
+      box-shadow: var(--sombra-tarjeta-hover);
+    }
+
+    .tarjeta-perfil h2 {
+      color: var(--color-primario);
+      margin-bottom: var(--espaciado-sm);
+      font-size: 1.5rem;
+    }
+
+    .tarjeta-perfil .cargo {
+      color: var(--color-secundario);
+      font-weight: 600;
+      margin-bottom: var(--espaciado-md);
+    }
+
+    .tarjeta-perfil .descripcion {
+      line-height: 1.6;
+      margin-bottom: var(--espaciado-md);
+    }
+
+    /* 7. Lista de habilidades */
+    .lista-habilidades {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--espaciado-sm);
+    }
+
+    .lista-habilidades li {
+      background-color: var(--color-primario);
+      color: var(--color-blanco);
+      padding: var(--espaciado-xs) var(--espaciado-md);
+      border-radius: var(--radio-borde);
+      font-size: 0.9rem;
+    }
+
+    /* 8. Tarjeta con scope localizado */
+    .tarjeta-urgente {
+      --color-borde: #e74c3c;
+      --color-fondo-tarjeta: #fdedec;
+      background-color: var(--color-fondo-tarjeta);
+      border-left: 4px solid var(--color-borde);
+      border-radius: var(--radio-borde);
+      padding: var(--espaciado-md);
+      margin-bottom: var(--espaciado-lg);
+    }
+
+    .tarjeta-urgente h3 {
+      color: var(--color-borde);
+      margin-bottom: var(--espaciado-sm);
+    }
+
+    /* 9. Botones con fallback */
+    .boton-primario {
+      background-color: var(--color-secundario, #2e86c1);
+      color: var(--color-blanco);
+      border: 2px solid var(--color-acento, #f39c12);
+      padding: var(--espaciado-sm) var(--espaciado-lg);
+      border-radius: var(--radio-borde);
+      cursor: pointer;
+      font-family: var(--fuente-principal);
+      font-weight: bold;
+      transition: opacity var(--transicion-base);
+    }
+
+    .boton-primario:hover {
+      opacity: 0.85;
+    }
+
+    /* 10. Demostracion de variables en accion */
+    .demo-variables {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--espaciado-md);
+      margin-top: var(--espaciado-lg);
+    }
+
+    .muestra-color {
+      height: 80px;
+      border-radius: var(--radio-borde);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: bold;
+      box-shadow: var(--sombra-tarjeta);
+    }
+
+    .muestra-primario { background-color: var(--color-primario); color: var(--color-blanco); }
+    .muestra-secundario { background-color: var(--color-secundario); color: var(--color-blanco); }
+    .muestra-acento { background-color: var(--color-acento); color: var(--color-texto); }
+    .muestra-fondo { background-color: var(--color-fondo); color: var(--color-texto); border: 1px solid var(--color-secundario); }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+
+    <header class="encabezado">
+      <h1>Variables CSS (Custom Properties)</h1>
+      <p>Demostracion interactiva con el perfil de Yamil N.</p>
+      <button class="boton-tema" onclick="document.documentElement.toggleAttribute('data-theme') || (document.documentElement.setAttribute('data-theme', document.documentElement.getAttribute('data-theme') === 'oscuro' ? '' : 'oscuro'))">
+        Cambiar Tema Claro/Oscuro
+      </button>
+    </header>
+
+    <section class="tarjeta-perfil">
+      <h2>Yamil N.</h2>
+      <p class="cargo">Ingeniero Industrial - TextilPro S.A.</p>
+      <p class="descripcion">
+        Profesional en ingenieria industrial con especializacion en Lean Manufacturing.
+        Basado en La Paz, Bolivia. Experto en optimizacion de procesos productivos
+        y mejora continua en la industria textil.
+      </p>
+      <ul class="lista-habilidades">
+        <li>Lean Manufacturing</li>
+        <li>Mejora Continua</li>
+        <li>Gestion de Procesos</li>
+        <li>Kaizen</li>
+        <li>Six Sigma</li>
+      </ul>
+    </section>
+
+    <section class="tarjeta-urgente">
+      <h3>Aviso Urgente - Scope Localizado</h3>
+      <p>Esta tarjeta usa <code>--color-borde: #e74c3c;</code> definido solo en su propio scope.
+      El resto de la pagina no se ve afectado por esta variable.</p>
+    </section>
+
+    <section class="tarjeta-perfil">
+      <h2>Boton con Fallback</h2>
+      <p class="descripcion">
+        El boton de abajo usa <code>var(--color-boton, #2e86c1)</code>.
+        Como <code>--color-boton</code> no esta definida, usa el valor por defecto (#2e86c1).
+      </p>
+      <button class="boton-primario">Contactar a Yamil</button>
+    </section>
+
+    <section class="tarjeta-perfil">
+      <h2>Paleta de Colores en Vivo</h2>
+      <p class="descripcion">Cada muestra usa <code>var(--variable)</code> directamente.
+      Cambia el tema y observa como todos los colores se actualizan.</p>
+      <div class="demo-variables">
+        <div class="muestra-color muestra-primario">--color-primario</div>
+        <div class="muestra-color muestra-secundario">--color-secundario</div>
+        <div class="muestra-color muestra-acento">--color-acento</div>
+        <div class="muestra-color muestra-fondo">--color-fondo</div>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    const btn = document.querySelector('.boton-tema');
+    btn.addEventListener('click', () => {
+      const html = document.documentElement;
+      if (html.getAttribute('data-theme') === 'oscuro') {
+        html.removeAttribute('data-theme');
+      } else {
+        html.setAttribute('data-theme', 'oscuro');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yamil N - Unidades Fluidas</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        h1 { color: #1a5276; }
+        h2 { color: #2e86c1; }
+        h3 { color: #1a5276; border-bottom: 2px solid #2e86c1; padding-bottom: 8px; }
+        .tarjeta { background: white; padding: 20px; margin: 20px; border-radius: 8px; }
+
+        /* vw: viewport width */
+        .ejemplo-vw {
+            width: 50vw;
+            background-color: #d5f5e3;
+            padding: 20px;
+            margin: 20px auto;
+        }
+
+        /* vh: viewport height */
+        .ejemplo-vh {
+            height: 50vh;
+            background-color: #fadbd8;
+            padding: 20px;
+            margin: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* %: percentage */
+        .ejemplo-porcentaje-padre {
+            background-color: #d6eaf8;
+            padding: 20px;
+            margin: 20px;
+        }
+        .ejemplo-porcentaje-hijo {
+            width: 60%;
+            background-color: #aed6f1;
+            padding: 15px;
+        }
+
+        /* vmin y vmax */
+        .ejemplo-vmin {
+            width: 50vmin;
+            height: 50vmin;
+            background-color: #fdebd0;
+            padding: 20px;
+            margin: 20px auto;
+        }
+
+        /* Fluid typography */
+        .ejemplo-fluido {
+            font-size: clamp(16px, 2.5vw, 24px);
+            background-color: #e8daef;
+            padding: 20px;
+            margin: 20px;
+        }
+
+        /* Responsive grid con % */
+        .grid-fluida {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+        .grid-item {
+            flex: 1 1 calc(33.333% - 20px);
+            min-width: 200px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tarjeta">
+        <h1>Yamil N</h1>
+        <h2>Unidades Fluidas en CSS</h2>
+    </div>
+
+    <div class="tarjeta">
+        <h3>vw (Viewport Width)</h3>
+        <p>Este contenedor tiene width: 50vw (50% del ancho de la ventana).</p>
+        <div class="ejemplo-vw">
+            <p>50vw = 50% del ancho de la ventana. Cambia el tamano de la ventana para ver el efecto.</p>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <h3>vh (Viewport Height)</h3>
+        <p>Este contenedor tiene height: 50vh (50% del alto de la ventana).</p>
+        <div class="ejemplo-vh">
+            <p>50vh = 50% de la altura de la ventana. El contenido esta centrado con flexbox.</p>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <h3>% (Porcentaje)</h3>
+        <p>El hijo tiene width: 60% del padre.</p>
+        <div class="ejemplo-porcentaje-padre">
+            <div class="ejemplo-porcentaje-hijo">
+                <p>width: 60% del padre</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <h3>vmin (Viewport Minimum)</h3>
+        <p>Este cuadrado usa 50vmin (50% de la dimension mas pequena de la ventana).</p>
+        <div class="ejemplo-vmin">
+            <p>50vmin x 50vmin. Siempre es un cuadrado perfecto.</p>
+        </div>
+    </div>
+
+    <div class="tarjeta">
+        <h3>Fluid Typography con clamp()</h3>
+        <p class="ejemplo-fluido">Este texto usa font-size: clamp(16px, 2.5vw, 24px). Se adapta fluidamente entre 16px y 24px segun el ancho de la ventana.</p>
+    </div>
+
+    <div class="tarjeta">
+        <h3>Grid Fluida con % y calc()</h3>
+        <div class="grid-fluida">
+            <div class="grid-item">
+                <h3>Experiencia 1</h3>
+                <p>Gerente de Operaciones en TextilPro S.A.</p>
+            </div>
+            <div class="grid-item">
+                <h3>Experiencia 2</h3>
+                <p>Coordinador de Planta en LogiPack Bolivia.</p>
+            </div>
+            <div class="grid-item">
+                <h3>Experiencia 3</h3>
+                <p>Analista de Procesos en ManufacturaGlobal.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01 - Tipografia | Yamil N - TextilPro S.A.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a5276;
+            --secondary: #2e86c1;
+            --accent: #f39c12;
+            --background: #f5f5f5;
+            --text: #333;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--background);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* HEADER */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 20px;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        /* SECCIONES DE EJEMPLO */
+        .section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        /* DEMO 1: Tamanos de fuente */
+        .font-sizes {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .size-12 { font-size: 12px; }
+        .size-16 { font-size: 16px; }
+        .size-20 { font-size: 20px; }
+        .size-24 { font-size: 24px; }
+        .size-32 { font-size: 32px; }
+        .size-40 { font-size: 40px; }
+
+        .size-label {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-right: 10px;
+        }
+
+        /* DEMO 2: Pesos de fuente */
+        .font-weights {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .weight-300 { font-weight: 300; }
+        .weight-400 { font-weight: 400; }
+        .weight-600 { font-weight: 600; }
+        .weight-700 { font-weight: 700; }
+
+        /* DEMO 3: Interlineado */
+        .line-height-demo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .line-height-box {
+            padding: 20px;
+            border: 2px solid var(--secondary);
+            border-radius: 8px;
+        }
+
+        .line-height-box h3 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        .lh-1 { line-height: 1; }
+        .lh-1-5 { line-height: 1.5; }
+        .lh-2 { line-height: 2; }
+
+        /* DEMO 4: Espaciado entre letras */
+        .letter-spacing-demo {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .ls-demo {
+            padding: 15px;
+            background: var(--background);
+            border-radius: 8px;
+            font-size: 18px;
+        }
+
+        .ls-1 { letter-spacing: -1px; }
+        .ls-0 { letter-spacing: 0; }
+        .ls-2 { letter-spacing: 2px; }
+        .ls-5 { letter-spacing: 5px; }
+
+        /* DEMO 5: Combinacion tipografica */
+        .typo-combo {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 12px;
+        }
+
+        .typo-combo h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            border: none;
+            color: white;
+        }
+
+        .typo-combo p {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* DEMO 6: Perfil profesional */
+        .profile-card {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .profile-card h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .profile-card .title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 5px;
+        }
+
+        .profile-card .company {
+            font-size: 16px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .profile-card .bio {
+            font-size: 16px;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        /* NOTA FINAL */
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid var(--accent);
+            padding: 15px 20px;
+            margin-top: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .note strong {
+            color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <header>
+            <h1>Tipografia CSS</h1>
+            <p>Controlando las fuentes con Yamil N | TextilPro S.A.</p>
+        </header>
+
+        <!-- DEMO 1: Tamanos de fuente -->
+        <div class="section">
+            <h2>1. Tamanos de Fuente (font-size)</h2>
+            <div class="font-sizes">
+                <div class="size-12">
+                    <span class="size-label">12px:</span>
+                    Texto pequeno para notas al pie o detalles secundarios
+                </div>
+                <div class="size-16">
+                    <span class="size-label">16px:</span>
+                    Texto base para parrafos y contenido general
+                </div>
+                <div class="size-20">
+                    <span class="size-label">20px:</span>
+                    Texto ligeramente grande para subtitulos
+                </div>
+                <div class="size-24">
+                    <span class="size-label">24px:</span>
+                    Texto grande para titulos de seccion
+                </div>
+                <div class="size-32">
+                    <span class="size-label">32px:</span>
+                    Texto muy grande para titulos principales
+                </div>
+                <div class="size-40">
+                    <span class="size-label">40px:</span>
+                    Texto enorme para hero o encabezados destacados
+                </div>
+            </div>
+        </div>
+
+        <!-- DEMO 2: Pesos de fuente -->
+        <div class="section">
+            <h2>2. Pesos de Fuente (font-weight)</h2>
+            <div class="font-weights">
+                <div class="weight-300">
+                    <span class="size-label">300 (Light):</span>
+                    Peso ligero, ideal para texto secundario o elegante
+                </div>
+                <div class="weight-400">
+                    <span class="size-label">400 (Normal):</span>
+                    Peso normal, el estandar para texto regular
+                </div>
+                <div class="weight-600">
+                    <span class="size-label">600 (Semi-bold):</span>
+                    Semi-negrita, bueno para subtitulos destacados
+                </div>
+                <div class="weight-700">
+                    <span class="size-label">700 (Bold):</span>
+                    Negrita, para titulos importantes y enfasis fuerte
+                </div>
+            </div>
+        </div>
+
+        <!-- DEMO 3: Interlineado -->
+        <div class="section">
+            <h2>3. Interlineado (line-height)</h2>
+            <div class="line-height-demo">
+                <div class="line-height-box">
+                    <h3>line-height: 1</h3>
+                    <p class="lh-1">
+                        Yamil N es ingeniero industrial en TextilPro S.A. en La Paz, Bolivia. Especializado en Lean Manufacturing y optimizacion de procesos productivos.
+                    </p>
+                </div>
+                <div class="line-height-box">
+                    <h3>line-height: 1.5</h3>
+                    <p class="lh-1-5">
+                        Yamil N es ingeniero industrial en TextilPro S.A. en La Paz, Bolivia. Especializado en Lean Manufacturing y optimizacion de procesos productivos.
+                    </p>
+                </div>
+                <div class="line-height-box">
+                    <h3>line-height: 2</h3>
+                    <p class="lh-2">
+                        Yamil N es ingeniero industrial en TextilPro S.A. en La Paz, Bolivia. Especializado en Lean Manufacturing y optimizacion de procesos productivos.
+                    </p>
+                </div>
+            </div>
+            <div class="note">
+                <strong>Consejo:</strong> El interlineado ideal para texto legible esta entre 1.5 y 1.8. Nunca uses 1 para parrafos largos.
+            </div>
+        </div>
+
+        <!-- DEMO 4: Espaciado entre letras -->
+        <div class="section">
+            <h2>4. Espaciado Entre Letras (letter-spacing)</h2>
+            <div class="letter-spacing-demo">
+                <div class="ls-demo ls-1">
+                    <span class="size-label">letter-spacing: -1px</span><br>
+                    TEXTPRO S.A. - Letras juntas, aspecto compacto
+                </div>
+                <div class="ls-demo ls-0">
+                    <span class="size-label">letter-spacing: 0</span><br>
+                    TEXTPRO S.A. - Espaciado normal, estandar
+                </div>
+                <div class="ls-demo ls-2">
+                    <span class="size-label">letter-spacing: 2px</span><br>
+                    TEXTPRO S.A. - Letras separadas, mas aireado
+                </div>
+                <div class="ls-demo ls-5">
+                    <span class="size-label">letter-spacing: 5px</span><br>
+                    TEXTPRO S.A. - Muy espaciado, estilo elegante
+                </div>
+            </div>
+        </div>
+
+        <!-- DEMO 5: Combinacion tipografica -->
+        <div class="section">
+            <h2>5. Combinacion Tipografica</h2>
+            <div class="typo-combo">
+                <h2>Reporte de Produccion</h2>
+                <p>
+                    Analisis de eficiencia de linea de produccion textil.<br>
+                    Optimizacion de procesos mediante metodologia Lean Manufacturing.<br>
+                    Resultados del primer trimestre 2024.
+                </p>
+            </div>
+            <div class="note">
+                <strong>Regla de oro:</strong> Usa maximo 2 familias de fuentes. Una para titulos (Montserrat) y otra para texto (Open Sans).
+            </div>
+        </div>
+
+        <!-- DEMO 6: Perfil profesional completo -->
+        <div class="section">
+            <h2>6. Tarjeta de Perfil Profesional</h2>
+            <div class="profile-card">
+                <h2>Yamil N</h2>
+                <p class="title">Ingeniero Industrial</p>
+                <p class="company">TextilPro S.A. | La Paz, Bolivia</p>
+                <p class="bio">
+                    Profesional con experiencia en gestion de operaciones y mejora continua en la industria textil. Especializado en implementacion de metodologias Lean Manufacturing, optimizacion de procesos productivos y reduccion de desperdicios. Enfocado en alcanzar la excelencia operacional mediante el analisis de datos y la innovacion constante.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

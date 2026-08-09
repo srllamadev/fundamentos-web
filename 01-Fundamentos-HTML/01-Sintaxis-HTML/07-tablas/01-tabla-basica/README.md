@@ -144,40 +144,6 @@ Cada `<td>` es una **celda**. Las celdas dentro de un mismo `<tr>` forman las co
 
 ---
 
-## ¿Como se ve la tabla?
-
-```
-┌──────────┬──────────────────┬─────────────────────────────────┐
-│ Lunes    │ 08:00 - 17:00    │ Oficina - Revision de indicadores│
-├──────────┼──────────────────┼─────────────────────────────────┤
-│ Martes   │ 08:00 - 17:00    │ Planta - Supervision            │
-├──────────┼──────────────────┼─────────────────────────────────┤
-│ Miercoles│ 08:00 - 17:00    │ Oficina - Reunion proveedores   │
-├──────────┼──────────────────┼─────────────────────────────────┤
-│ Jueves   │ 08:00 - 17:00    │ Planta - Analisis de procesos   │
-├──────────┼──────────────────┼─────────────────────────────────┤
-│ Viernes  │ 08:00 - 13:00    │ Oficina - Reportes semanales    │
-└──────────┴──────────────────┴─────────────────────────────────┘
-```
-
-### Contando filas y columnas
-
-```
-              Columna 1    Columna 2    Columna 3
-              ─────────    ─────────    ─────────
-Fila 1:       Lunes        08:00-17:00  Oficina...
-Fila 2:       Martes       08:00-17:00  Planta...
-Fila 3:       Miercoles    08:00-17:00  Oficina...
-Fila 4:       Jueves       08:00-17:00  Planta...
-Fila 5:       Viernes      08:00-13:00  Oficina...
-```
-
-- **5 filas** (`<tr>`)
-- **3 columnas** (`<td>` en cada fila)
-- **15 celdas** en total (5 x 3)
-
----
-
 ## La segunda tabla del ejemplo: Software
 
 ```html
@@ -210,29 +176,6 @@ Fila 5:       Viernes      08:00-13:00  Oficina...
     </tr>
 </table>
 ```
-
-Se muestra asi:
-
-```
-┌───────────────────┬──────────────┐
-│ AutoCAD           │ Avanzado     │
-├───────────────────┼──────────────┤
-│ Minitab           │ Avanzado     │
-├───────────────────┼──────────────┤
-│ SAP               │ Intermedio   │
-├───────────────────┼──────────────┤
-│ Microsoft Project │ Avanzado     │
-├───────────────────┼──────────────┤
-│ ARENA             │ Intermedio   │
-├───────────────────┼──────────────┤
-│ Power BI          │ Basico       │
-└───────────────────┴──────────────┘
-```
-
-Esta tabla tiene:
-- **6 filas** (`<tr>`)
-- **2 columnas** (`<td>` en cada fila)
-- **12 celdas** en total (6 x 2)
 
 ---
 
@@ -268,29 +211,6 @@ Esta tabla tiene:
 ```
 
 Si una fila tiene 3 columnas, todas las filas deben tener 3 columnas. Si no, la tabla se vera deformada.
-
----
-
-##jerarquia de las etiquetas
-
-```
-<table>                     → Contenedor de toda la tabla
-│
-├── <tr>                    → Fila 1
-│   ├── <td>Columna 1</td>  → Celda
-│   ├── <td>Columna 2</td>  → Celda
-│   └── <td>Columna 3</td>  → Celda
-│
-├── <tr>                    → Fila 2
-│   ├── <td>Columna 1</td>  → Celda
-│   ├── <td>Columna 2</td>  → Celda
-│   └── <td>Columna 3</td>  → Celda
-│
-└── <tr>                    → Fila 3
-    ├── <td>Columna 1</td>  → Celda
-    ├── <td>Columna 2</td>  → Celda
-    └── <td>Columna 3</td>  → Celda
-```
 
 ---
 
@@ -357,33 +277,3 @@ Si una fila tiene 3 columnas, todas las filas deben tener 3 columnas. Si no, la 
     </tr>
 </table>
 ```
-
-### Error 3: Olvidar cerrar las etiquetas
-
-```html
-<!-- INCORRECTO: falta cerrar <td> y <tr> -->
-<table border="1">
-    <tr>
-        <td>Dato 1
-        <td>Dato 2
-</table>
-
-<!-- CORRECTO: todas las etiquetas cerradas -->
-<table border="1">
-    <tr>
-        <td>Dato 1</td>
-        <td>Dato 2</td>
-    </tr>
-</table>
-```
-
----
-
-## Ejercicio practico
-
-1. Abre el `index.html` en tu navegador.
-2. Cuenta cuantas filas y columnas tiene la tabla de "Horario Semanal".
-3. Crea una nueva tabla con 3 columnas y 4 filas que liste tus comidas del dia (Desayuno, Almuerzo, Cena, Merienda).
-4. Agrega una tabla de "Idiomas" con 2 columnas: idioma y nivel.
-5. ¿Que pasa si quitas `border="1"` de la tabla? ¿Se ve diferente?
-6. Intenta crear una tabla con filas de diferente numero de columnas. ¿Como se ve?

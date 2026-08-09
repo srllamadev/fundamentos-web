@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Posicionamiento CSS - Yamil N | TextilPro S.A.</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* ===== HEADER FIJO ===== */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #1a5276;
+      color: white;
+      padding: 15px 30px;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header h1 {
+      font-size: 1.2rem;
+    }
+
+    .header nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 0.9rem;
+    }
+
+    .header nav a:hover {
+      color: #f39c12;
+    }
+
+    /* ===== CONTENEDOR PRINCIPAL ===== */
+    .main-content {
+      margin-top: 80px;
+      padding: 30px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .perfil {
+      background: linear-gradient(135deg, #1a5276, #2e86c1);
+      color: white;
+      padding: 25px;
+      border-radius: 12px;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .perfil h2 {
+      color: #f39c12;
+      margin-bottom: 10px;
+    }
+
+    .perfil-badge {
+      position: absolute;
+      top: -10px;
+      right: 20px;
+      background-color: #f39c12;
+      color: #1a5276;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 0.8rem;
+    }
+
+    /* ===== SECCIONES DE EJEMPLO ===== */
+    .ejemplo {
+      background: white;
+      border-radius: 10px;
+      padding: 25px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .ejemplo h3 {
+      color: #1a5276;
+      border-bottom: 3px solid #2e86c1;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    .ejemplo p {
+      margin-bottom: 15px;
+    }
+
+    /* ===== DEMO: STATIC ===== */
+    .demo-static .caja {
+      position: static;
+      background-color: #2e86c1;
+      color: white;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 6px;
+      text-align: center;
+    }
+
+    .demo-static .caja:nth-child(2) {
+      background-color: #f39c12;
+      color: #333;
+    }
+
+    /* ===== DEMO: RELATIVE ===== */
+    .demo-relative {
+      border: 2px dashed #2e86c1;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    .demo-relative .caja-origen {
+      background-color: #e8e8e8;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 6px;
+      color: #999;
+      text-align: center;
+    }
+
+    .demo-relative .caja-movida {
+      position: relative;
+      top: 20px;
+      left: 40px;
+      background-color: #f39c12;
+      color: #333;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 6px;
+      text-align: center;
+    }
+
+    /* ===== DEMO: ABSOLUTE ===== */
+    .demo-absolute-padre {
+      position: relative;
+      background-color: #1a5276;
+      border-radius: 8px;
+      padding: 20px;
+      min-height: 200px;
+      color: white;
+    }
+
+    .demo-absolute-padre .hijo-absolute {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #f39c12;
+      color: #1a5276;
+      padding: 8px 15px;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 0.85rem;
+    }
+
+    .demo-absolute-padre p {
+      padding-top: 40px;
+    }
+
+    /* ===== DEMO: BADGE (caso practico) ===== */
+    .badge-container {
+      position: relative;
+      display: inline-block;
+      font-size: 2.5rem;
+      margin: 20px 0;
+    }
+
+    .badge-notificacion {
+      position: absolute;
+      top: -5px;
+      right: -10px;
+      background-color: #e74c3c;
+      color: white;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: bold;
+    }
+
+    /* ===== DEMO: STICKY ===== */
+    .demo-sticky-wrapper {
+      height: 300px;
+      overflow-y: scroll;
+      border: 2px solid #2e86c1;
+      border-radius: 8px;
+    }
+
+    .demo-sticky-header {
+      position: sticky;
+      top: 0;
+      background-color: #1a5276;
+      color: white;
+      padding: 12px 20px;
+      font-weight: bold;
+      z-index: 10;
+    }
+
+    .demo-sticky-wrapper .fila {
+      padding: 12px 20px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .demo-sticky-wrapper .fila:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    /* ===== BOTON VOLVER ARRIBA (FIXED) ===== */
+    .btn-volver-arriba {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #f39c12;
+      color: #1a5276;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+    }
+
+    .btn-volver-arriba:hover {
+      background-color: #e67e22;
+    }
+
+    /* ===== TABLA COMPARATIVA ===== */
+    .tabla-comparativa {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    .tabla-comparativa th {
+      background-color: #1a5276;
+      color: white;
+      padding: 10px;
+      text-align: left;
+    }
+
+    .tabla-comparativa td {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .tabla-comparativa tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background-color: #1a5276;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    code {
+      background-color: #e8e8e8;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 0.9em;
+      color: #1a5276;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER FIXED -->
+  <header class="header">
+    <h1>Yamil N - TextilPro S.A.</h1>
+    <nav>
+      <a href="#static">Static</a>
+      <a href="#relative">Relative</a>
+      <a href="#absolute">Absolute</a>
+      <a href="#fixed">Fixed</a>
+      <a href="#sticky">Sticky</a>
+    </nav>
+  </header>
+
+  <main class="main-content">
+
+    <!-- PERFIL -->
+    <section class="perfil">
+      <span class="perfil-badge">POSICIONAMIENTO CSS</span>
+      <h2>Yamil N</h2>
+      <p><strong>Ingeniero Industrial</strong> | TextilPro S.A. | La Paz, Bolivia</p>
+      <p>Especialista en Lean Manufacturing. "En la fabrica, cada elemento tiene su posicion exacta. CSS funciona igual."</p>
+    </section>
+
+    <!-- 1. STATIC -->
+    <section class="ejemplo" id="static">
+      <h3>1. position: static (por defecto)</h3>
+      <p>Todos los elementos tienen <code>position: static</code> automaticamente. Se apilan en el flujo normal del documento.</p>
+      <div class="demo-static">
+        <div class="caja">Caja 1 - Orden natural</div>
+        <div class="caja">Caja 2 - Sigue el flujo</div>
+        <div class="caja">Caja 3 - Al final</div>
+      </div>
+      <p><strong>Regla:</strong> Las propiedades <code>top</code>, <code>left</code>, <code>right</code>, <code>bottom</code> <strong>NO funcionan</strong> con static.</p>
+    </section>
+
+    <!-- 2. RELATIVE -->
+    <section class="ejemplo" id="relative">
+      <h3>2. position: relative</h3>
+      <p>El elemento se desplaza respecto a su posicion original, pero <strong>sigue ocupando ese espacio</strong> en el flujo.</p>
+      <div class="demo-relative">
+        <div class="caja-origen">Caja A - Posicion original (no se mueve)</div>
+        <div class="caja-movida">Caja B - Movida con relative (top: 20px, left: 40px)</div>
+        <div class="caja-origen">Caja C - El espacio de B sigue reservado</div>
+      </div>
+    </section>
+
+    <!-- 3. ABSOLUTE -->
+    <section class="ejemplo" id="absolute">
+      <h3>3. position: absolute</h3>
+      <p>El elemento se <strong>saca del flujo</strong> y se posiciona respecto al ancestro con <code>position</code> diferente de <code>static</code>.</p>
+      <div class="demo-absolute-padre">
+        <span class="hijo-absolute">ABSOLUTE: top: 10px, right: 10px</span>
+        <p>El hijo absolute se posiciono en la esquina superior derecha del padre.</p>
+        <p>El padre tiene <code>position: relative</code> para crear un contexto de posicionamiento.</p>
+        <p>El contenido normal NO se ve afectado por el elemento absolute.</p>
+      </div>
+
+      <h3 style="margin-top: 25px;">Caso practico: Badge de notificacion</h3>
+      <p>Un uso muy comun de <code>absolute</code> es crear badges sobre iconos:</p>
+      <div class="badge-container">
+        🔔
+        <span class="badge-notificacion">3</span>
+      </div>
+      <p>El badge "3" usa <code>position: absolute</code> respecto al contenedor del icono.</p>
+    </section>
+
+    <!-- 4. FIXED -->
+    <section class="ejemplo" id="fixed">
+      <h3>4. position: fixed</h3>
+      <p>El elemento se ancla a la <strong>ventana del navegador</strong> (viewport). No se mueve al hacer scroll.</p>
+      <p>El header de esta pagina usa <code>position: fixed</code> - mira arriba, siempre esta visible.</p>
+      <p>El boton "volver arriba" de la esquina inferior derecha usa <code>position: fixed</code>.</p>
+      <p>Usos comunes:</p>
+      <ul style="margin-left: 20px; margin-top: 10px;">
+        <li>Barras de navegacion fijas</li>
+        <li>Botones flotantes</li>
+        <li>Modales y overlays</li>
+        <li>Chat widgets</li>
+      </ul>
+    </section>
+
+    <!-- 5. STICKY -->
+    <section class="ejemplo" id="sticky">
+      <h3>5. position: sticky</h3>
+      <p>Es un <strong>hibrido</strong>: se comporta como <code>relative</code> hasta que llegas a cierto punto del scroll, y luego se comporta como <code>fixed</code>.</p>
+      <p>Haz scroll dentro del cuadro para ver el header pegarse:</p>
+      <div class="demo-sticky-wrapper">
+        <div class="demo-sticky-header">Produccion TextilPro - linea A (STICKY HEADER)</div>
+        <div class="fila">Orden #001 - Camisas blancas talla M - 500 unidades</div>
+        <div class="fila">Orden #002 - Pantalones azul marino talla L - 300 unidades</div>
+        <div class="fila">Orden #003 - Polos rojos talla S - 700 unidades</div>
+        <div class="fila">Orden #004 - Chaquetas de invierno talla XL - 150 unidades</div>
+        <div class="fila">Orden #005 - Camisas celestes talla M - 400 unidades</div>
+        <div class="fila">Orden #006 - Shorts deportivos talla L - 600 unidades</div>
+        <div class="fila">Orden #007 - Vestidos formales talla S - 200 unidades</div>
+        <div class="fila">Orden #008 - Faldas escolares talla M - 1000 unidades</div>
+        <div class="fila">Orden #009 - Uniformes corporativos talla XL - 250 unidades</div>
+        <div class="fila">Orden #010 - Ropa deportiva completa - 350 unidades</div>
+      </div>
+    </section>
+
+    <!-- TABLA COMPARATIVA -->
+    <section class="ejemplo">
+      <h3>Tabla comparativa</h3>
+      <table class="tabla-comparativa">
+        <thead>
+          <tr>
+            <th>Valor</th>
+            <th>Sale del flujo</th>
+            <th>Referencia</th>
+            <th>Scroll afecta</th>
+            <th>Uso tipico</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>static</code></td>
+            <td>No</td>
+            <td>N/A</td>
+            <td>Si</td>
+            <td>Comportamiento por defecto</td>
+          </tr>
+          <tr>
+            <td><code>relative</code></td>
+            <td>No</td>
+            <td>Su lugar original</td>
+            <td>Si</td>
+            <td>Ajustes finos, contexto para absolute</td>
+          </tr>
+          <tr>
+            <td><code>absolute</code></td>
+            <td>Si</td>
+            <td>Ancestro posicionado</td>
+            <td>No</td>
+            <td>Badges, tooltips, modales</td>
+          </tr>
+          <tr>
+            <td><code>fixed</code></td>
+            <td>Si</td>
+            <td>Viewport</td>
+            <td>No</td>
+            <td>Navbars, botones flotantes</td>
+          </tr>
+          <tr>
+            <td><code>sticky</code></td>
+            <td>Hibrido</td>
+            <td>Viewport (tras scroll)</td>
+            <td>Hibrido</td>
+            <td>Headers pegajosos, tablas</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <!-- BOTON VOLVER ARRIBA (FIXED) -->
+  <a href="#" class="btn-volver-arriba" title="Volver arriba">▲</a>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>Curso de Fundamentos Web - Seccion 03: Maquetacion Clasica</p>
+    <p>Yamil N | TextilPro S.A. | La Paz, Bolivia</p>
+  </footer>
+
+</body>
+</html>
