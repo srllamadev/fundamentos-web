@@ -1,4 +1,4 @@
-# 02 - HTML Semantico: `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<aside>`, `<footer>`
+# HTML Semantico: `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<aside>`, `<footer>`
 
 ## ¿Que aprendemos aqui?
 
@@ -499,18 +499,6 @@ La diferencia visual es la misma. La diferencia es que **ahora el navegador, los
 
 ---
 
-## Ejercicio practico
-
-1. Abre el archivo `index.html` en tu navegador.
-2. Observa la estructura: identifica cada etiqueta semantica.
-3. Haz clic en los enlaces del `<nav>` y verifica que saltan a la seccion correspondiente.
-4. Agrega una nueva `<section>` llamada "Habilidades Tecnicas" con al menos 2 `<article>` dentro.
-5. Agrega mas informacion al `<aside>` (por ejemplo, "Voluntariado" o "Intereses").
-6. Agrega un `<footer>` dentro de uno de los `<article>` con la fecha de publicacion.
-7. Intenta reemplazar `<main>` por `<div>` y piensa: ¿que pierdes?
-
----
-
 ## Resumen visual
 
 ```
@@ -534,5 +522,3 @@ La diferencia visual es la misma. La diferencia es que **ahora el navegador, los
 │ <footer>     Copyright, contacto, enlaces legales       │
 └──────────────────────────────────────────────────────────┘
 ```
-
-**HTML semantico no cambia como se ve tu pagina, cambia como se entiende.**

@@ -19,16 +19,6 @@ Este repositorio contiene **6 lecciones progresivas** donde aprenderás las etiq
 
 ---
 
-## Cómo usar este material
-
-1. **Abre cada carpeta** en orden (01 a 06).
-2. **Lee el `README.md`** de cada carpeta: contiene explicaciones detalladas de cada etiqueta.
-3. **Abre el `index.html`** en tu navegador para ver el resultado.
-4. **Copia el código** y pégalo en tu propio archivo para practicar.
-5. **Modifica el código** siguiendo los ejercicios prácticos al final de cada README.
-
----
-
 ## Perfil profesional que construiremos
 
 El personaje del perfil es **Yamil N**, un ingeniero industrial Boliviano. A medida que avanzas por las lecciones, irás viendo cómo su perfil toma forma:
@@ -61,17 +51,3 @@ El personaje del perfil es **Yamil N**, un ingeniero industrial Boliviano. A med
 3. **Todo `<label>` debe tener `for` que coincida con el `id` del `<input>`** - Por usabilidad
 4. **Usar `<div>` para bloques y `<span>` para línea** - No mezclarlos
 5. **El esqueleto básico es obligatorio** - `<!DOCTYPE>`, `<html>`, `<head>`, `<body>`
-
----
-
-## Herramientas que necesitas
-
-- Un **editor de texto** (recomendado: VS Code)
-- Un **navegador web** (Chrome, Firefox, Edge)
-- ¡Ganas de aprender!
-
----
-
-## Nota importante
-
-**Todos los archivos son HTML puro, sin CSS ni JavaScript.** El objetivo de estas lecciones es que aprendas las etiquetas y su estructura. Los estilos y la interactividad vendrán en lecciones posteriores.
