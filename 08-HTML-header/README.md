@@ -1,4 +1,4 @@
-# 01 - `<header>`: La Cabecera
+# 08 - `<header>`: La Cabecera
 
 ## ¿Que aprendemos aqui?
 
@@ -72,30 +72,6 @@ Aprenderas que es `<header>`, para que sirve y como se usa. Esta etiqueta repres
 | Logo o imagen de perfil | Identificacion visual |
 | `<nav>` | A veces el menu va dentro del header |
 
-### Ejemplo en nuestro perfil
-
-```html
-<header>
-    <h1>Yamil N</h1>
-    <h2>Ingeniero Industrial | Especialista en Optimizacion de Procesos</h2>
-    <p>Email: yamil.ejemplo@email.com | Tel: +591 7070707070 | La Paz, Bolivia</p>
-</header>
-```
-
-Se muestra asi:
-
-```
-┌──────────────────────────────────────────────────────────────┐
-│                                                              │
-│  Yamil N                                                     │
-│  Ingeniero Industrial | Especialista en Optimizacion de      │
-│  Procesos                                                    │
-│  Email: yamil.ejemplo@email.com | Tel: +591 7070707070 |    │
-│  La Paz, Bolivia                                             │
-│                                                              │
-└──────────────────────────────────────────────────────────────┘
-```
-
 ---
 
 ## ¿Cuantoos `<header>` puede haber?
@@ -138,29 +114,7 @@ Periodico (pagina)
 
 ---
 
-## `<header>` vs `<div>`
-
-Recuerda que en la leccion anterior usabamos `<div>` para esto:
-
-```html
-<!-- ANTES -->
-<div>
-    <h1>Yamil N</h1>
-    <h2>Ingeniero Industrial</h2>
-</div>
-
-<!-- AHORA -->
-<header>
-    <h1>Yamil N</h1>
-    <h2>Ingeniero Industrial</h2>
-</header>
-```
-
-El resultado visual es el mismo, pero `<header>` le dice al navegador: **"esto es la cabecera"**, no solo "una caja generica".
-
----
-
-## Reglas importantes
+## Notas relevantes
 
 | Regla | Detalle |
 |-------|---------|
@@ -168,13 +122,3 @@ El resultado visual es el mismo, pero `<header>` le dice al navegador: **"esto e
 | Puede haber mas `<header>` dentro de `<section>` o `<article>` | Cada seccion puede tener su propia cabecera |
 | No anidar `<header>` dentro de otro `<header>` | Un header no va dentro de otro header |
 | Tipicamente contiene `<h1>` a `<h6>`, `<p>`, `<nav>` | Es contenido de presentacion |
-
----
-
-## Ejercicio practico
-
-1. Abre el `index.html` en tu navegador.
-2. Agrega una imagen dentro del `<header>` (usa `<img>` que aprendiste antes).
-3. Agrega un enlace a LinkedIn dentro del `<header>`.
-4. Crea una segunda version del `<header>` con un estilo diferente (mas datos, menos datos).
-5. ¿Que pasa si pones dos `<header>` principales? ¿Funciona? ¿Tiene sentido?

@@ -1,4 +1,4 @@
-# 05 - `<article>`: Contenido Independiente
+# 12 - `<article>`: Contenido Independiente
 
 ## ¿Que aprendemos aqui?
 
@@ -109,26 +109,9 @@ Aprenderas que es `<article>`, cuando usarlo y cual es la diferencia con `<secti
 
 ---
 
-## La prueba del article
-
-Para saber si algo debe ser `<article>`, hazte esta pregunta:
-
-**"Si saco este contenido de la pagina y lo pongo en otro lugar, ¿sigue teniendo sentido?"**
-
-| Contenido | ¿Tiene sentido por si solo? | ¿Usar `<article>`? |
-|-----------|----------------------------|---------------------|
-| Un trabajo especifico con sus logros | Si | Si |
-| Una publicacion con titulo y resumen | Si | Si |
-| Una receta de cocina | Si | Si |
-| Un comentario de blog | Si | Si |
-| La seccion "Experiencia" completa | No (es un grupo de trabajos) | No (usa `<section>`) |
-| El perfil profesional | No (es parte de la pagina) | No |
-
----
-
 ## `<article>` vs `<section>`
 
-Esta es la confusion mas comun. La diferencia clave:
+La diferencia:
 
 | Caracteristica | `<section>` | `<article>` |
 |----------------|-------------|-------------|
@@ -166,153 +149,13 @@ Esta es la confusion mas comun. La diferencia clave:
 
 ---
 
-## Usos comunes de `<article>`
-
-| Uso | Ejemplo |
-|-----|---------|
-| Experiencia laboral | Cada trabajo es un articulo |
-| Publicaciones academicas | Cada paper es un articulo |
-| Noticias de un blog | Cada noticia es un articulo |
-| Productos de una tienda | Cada producto es un articulo |
-| Comentarios en un foro | Cada comentario es un articulo |
-| Recetas de cocina | Cada receta es un articulo |
-
----
-
-## `<article>` puede tener su propio `<header>` y `<footer>`
-
-Un articulo puede tener cabecera y pie propios:
-
-```html
-<article>
-    <header>
-        <h4>Gerente de Operaciones - TextilPro S.A.</h4>
-        <p>(2020 - Presente)</p>
-    </header>
-
-    <ul>
-        <li>Reduccion de tiempos de entrega en 30%</li>
-        <li>Liderazgo de 45 personas</li>
-    </ul>
-
-    <footer>
-        <p>Publicado el 15 de marzo de 2024</p>
-    </footer>
-</article>
-```
-
-### Analogia
-
-```
-Un articulo de periodico tiene:
-├── Titulo y fecha (<header>)
-├── Cuerpo del articulo (contenido)
-└── Nota del editor o fuente (<footer>)
-```
-
----
-
-## `<article>` dentro de `<article>`
-
-Es posible y tiene sentido en algunos casos:
-
-```html
-<article>
-    <h3>Seccion Experiencia Laboral</h3>
-
-    <article>
-        <h4>Gerente en TextilPro</h4>
-        <p>Logros...</p>
-    </article>
-
-    <article>
-        <h4>Coordinador en LogiPack</h4>
-        <p>Logros...</p>
-    </article>
-
-</article>
-```
-
-Esto es valido cuando el articulo externo agrupa articulos internos relacionados.
-
----
-
-## Reglas importantes
+## Datos relevantes
 
 | Regla | Detalle |
 |-------|---------|
-| `<article>` debe tener sentido por si solo | La prueba: ¿lo puedes mover a otro lugar? |
+| `<article>` debe tener sentido por si solo |  |
 | Casi siempre tiene un titulo | `<h1>` a `<h6>` |
 | Va dentro de `<section>` o `<main>` | El contenido principal se compone de articulos |
 | Puede tener su `<header>` y `<footer>` | Cabecera y pie propios |
 | Puede anidarse | Un article dentro de otro si tiene sentido |
 | No confundir con `<section>` | Section agrupa por tema, article por independencia |
-
----
-
-## Errores comunes
-
-### Error 1: Usar article cuando deberia ser section
-
-```html
-<!-- INCORRECTO: cada uno es article porque son independientes -->
-<section>
-    <h3>Trabajo 1</h3>
-</section>
-<section>
-    <h3>Trabajo 2</h3>
-</section>
-
-<!-- CORRECTO: cada trabajo es un article -->
-<section id="experiencia">
-    <h3>Experiencia Laboral</h3>
-    <article>
-        <h4>Trabajo 1</h4>
-    </article>
-    <article>
-        <h4>Trabajo 2</h4>
-    </article>
-</section>
-```
-
-### Error 2: Usar article para contenido que no es independiente
-
-```html
-<!-- INCORRECTO: esto no tiene sentido por si solo -->
-<article>
-    <p>Datos de contacto sueltos</p>
-</article>
-
-<!-- CORRECTO: esto es contenido complementario, usa aside -->
-<aside>
-    <h3>Datos de Contacto</h3>
-    <p>Email: yamil@ejemplo.com</p>
-</aside>
-```
-
-### Error 3: Olvidar que article debe ser autocontenido
-
-```html
-<!-- INCORRECTO: depende de otro article para tener sentido -->
-<article>
-    <p>Ver el trabajo anterior para mas detalles.</p>
-</article>
-
-<!-- CORRECTO: cada article tiene toda la informacion necesaria -->
-<article>
-    <h4>Gerente en TextilPro</h4>
-    <p>Toda la informacion esta aqui...</p>
-</article>
-```
-
----
-
-## Ejercicio practico
-
-1. Abre el `index.html` en tu navegador.
-2. Identifica todos los `<article>` y explica por que cada uno es independiente.
-3. Agrega un nuevo `<article>` dentro de la seccion "Experiencia" con un trabajo adicional.
-4. Agrega un `<header>` dentro de uno de los `<article>` con titulo y fecha.
-5. Agrega un `<footer>` dentro de otro `<article>` con informacion adicional.
-6. Crea una nueva seccion "Proyectos" con al menos 2 `<article>` dentro.
-7. Toma un `<article>` y muevelo a otra seccion. ¿Sigue teniendo sentido?

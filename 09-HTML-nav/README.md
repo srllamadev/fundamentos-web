@@ -1,4 +1,4 @@
-# 02 - `<nav>`: El Menu de Navegacion
+# 09 - `<nav>`: El Menu de Navegacion
 
 ## ¿Que aprendemos aqui?
 
@@ -129,73 +129,6 @@ El atributo `id` es como un **nombre unico** para esa seccion.
 
 ---
 
-## ¿Como se ve en la practica?
-
-Cuando abres el `index.html` en el navegador:
-
-1. Ves el menu en la parte superior.
-2. Si haces clic en "Experiencia Laboral", la pagina **salta automaticamente** a la seccion con `id="experiencia"`.
-3. Es como tener un indice interactivo.
-
----
-
-## ¿Cuando usar `<nav>`?
-
-| Situacion | ¿Usar `<nav>`? |
-|-----------|----------------|
-| Menu principal de la pagina | Si |
-| Enlaces de navegacion entre secciones | Si |
-| Pie de pagina con enlaces | Si (puede haber un segundo `<nav>` en el footer) |
-| Lista de etiquetas de un blog | No (eso es contenido, no navegacion) |
-| Una lista de productos | No (eso es contenido) |
-
-### Regla practica
-
-Si el proposito principal es **llevar al usuario a otro lugar** (otra seccion, otra pagina), usa `<nav>`. Si el proposito es **mostrar informacion**, usa otro elemento.
-
----
-
-## `<nav>` dentro de `<header>`
-
-Es muy comun poner `<nav>` **dentro** de `<header>`:
-
-```html
-<header>
-    <h1>Yamil N</h1>
-    <nav>
-        <ul>
-            <li><a href="#perfil">Perfil</a></li>
-            <li><a href="#experiencia">Experiencia</a></li>
-        </ul>
-    </nav>
-</header>
-```
-
-¿Cuando hacerlo?
-
-- Si el menu es **parte de la presentacion** de la pagina (va arriba, junto al nombre).
-- Si solo hay **un menu** en toda la pagina.
-
-### ¿Cuando separarlos?
-
-```html
-<header>
-    <h1>Yamil N</h1>
-</header>
-
-<nav>
-    <ul>
-        <li><a href="#perfil">Perfil</a></li>
-        <li><a href="#experiencia">Experiencia</a></li>
-    </ul>
-</nav>
-```
-
-- Si quieres que el menu sea **visualmente independiente** de la cabecera.
-- Si hay **mas de un menu** en la pagina (por ejemplo, uno arriba y otro en el footer).
-
----
-
 ## `<nav>` vs `<div>` con enlaces
 
 ```html
@@ -222,7 +155,7 @@ La diferencia:
 
 ---
 
-## Reglas importantes
+## Notas relevantes
 
 | Regla | Detalle |
 |-------|---------|
@@ -275,14 +208,3 @@ La diferencia:
     </ul>
 </nav>
 ```
-
----
-
-## Ejercicio practico
-
-1. Abre el `index.html` en tu navegador.
-2. Haz clic en cada enlace del menu y verifica que salta a la seccion correcta.
-3. Agrega un nuevo elemento al menu: "Certificaciones" con `href="#certificaciones"`.
-4. Crea la seccion correspondiente con `id="certificaciones"`.
-5. Agrega un segundo `<nav>` al final de la pagina (despues del `</main>`) con enlaces diferentes.
-6. ¿Que pasa si dos secciones tienen el mismo `id`? Pruébalo y observa.
