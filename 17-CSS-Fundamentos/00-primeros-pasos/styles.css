@@ -1,0 +1,18 @@
+body {
+    background-color: white;
+    font-family: Arial, sans-serif;
+
+}
+/*esto es el contenedor principal*/
+#contenidoAAA {
+    background-color: #8b98e8;
+    color: #b36363;
+    width: 60%;
+    /*width: 80%;*/
+    /* height: 100%; */
+}
+
+.articleBBB   {
+    background-color: #3947c6;
+    color: #eb2e2e;
+}
