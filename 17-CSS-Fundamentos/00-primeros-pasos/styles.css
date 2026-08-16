@@ -1,20 +1,18 @@
-/* Corrección del selector universal y reseteo de márgenes */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Los porcentajes y paddings cuadren */
+    box-sizing: border-box;
 }
-
 body {
     background-color: white;
     font-family: Arial, sans-serif;
 }
 
-/* Contenedor principal */
 #contenidoAAA {
     width: 1200px;
-    margin: 0px auto; 
+    margin: 0px auto;
     border: 1px solid black;
+
 }
 
 header {
@@ -24,12 +22,11 @@ header {
     margin: 0px;
     text-align: center;
     line-height: 100px;
-    color: white;
-    border-bottom: 3px dashed black;
+    border-bottom: 3px solid black;
 }
 
 nav {
-    background-color: lightblue;
+    background-color: rgb(14, 14, 128);
     height: 50px;
     border-bottom: 1px solid black;
 }
@@ -41,31 +38,30 @@ nav ul li {
     line-height: 30px;
 }
 
-.clearfix::after {
-    content: "";
-    display: table;
-    clear: both;
+nav ul li a {
+    text-decoration: none;
+    color: white;
 }
 
 section {
     float: left;
     width: 80%;
     min-height: 400px;
-    background-color: green; 
-}  
+    background-color: purple;
+}
 
 aside {
     float: left;
     width: 20%;
-    background-color: orange;
+    background-color: rgb(12, 64, 45);
     min-height: 400px;
     padding: 10px;
 }
 
 footer {
-    clear: both; /* Importante para que se coloque debajo del section y el aside */
-    background: black;
-    color: white;
+    clear: both;
+    background-color: #1ec63d;
+    color: rgb(27, 22, 22);
     text-align: center;
     height: 50px;
     line-height: 50px;
