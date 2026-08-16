@@ -1,18 +1,72 @@
+/* Corrección del selector universal y reseteo de márgenes */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Los porcentajes y paddings cuadren */
+}
+
 body {
     background-color: white;
     font-family: Arial, sans-serif;
-
 }
-/*esto es el contenedor principal*/
+
+/* Contenedor principal */
 #contenidoAAA {
-    background-color: #8b98e8;
-    color: #b36363;
-    width: 60%;
-    /*width: 80%;*/
-    /* height: 100%; */
+    width: 1200px;
+    margin: 0px auto; 
+    border: 1px solid black;
 }
 
-.articleBBB   {
-    background-color: #3947c6;
-    color: #eb2e2e;
+header {
+    background-color: red;
+    height: 100px;
+    width: 100%;
+    margin: 0px;
+    text-align: center;
+    line-height: 100px;
+    color: white;
+    border-bottom: 3px dashed black;
+}
+
+nav {
+    background-color: lightblue;
+    height: 50px;
+    border-bottom: 1px solid black;
+}
+
+nav ul li {
+    float: left;
+    list-style: none;
+    margin: 10px;
+    line-height: 30px;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+section {
+    float: left;
+    width: 80%;
+    min-height: 400px;
+    background-color: green; 
+}  
+
+aside {
+    float: left;
+    width: 20%;
+    background-color: orange;
+    min-height: 400px;
+    padding: 10px;
+}
+
+footer {
+    clear: both; /* Importante para que se coloque debajo del section y el aside */
+    background: black;
+    color: white;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
 }
