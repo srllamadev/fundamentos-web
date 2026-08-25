@@ -2,8 +2,7 @@
 
 ## ¿Que aprendemos aqui?
 
-Esta es **la leccion mas importante de CSS**. Aprenderas que TODO elemento HTML es una caja rectangular con 4 capas: **contenido**, **padding**, **border** y **margin**. Entender esto es la base de TODO diseno web.
-
+Aprenderas que TODO elemento HTML es una caja rectangular con 4 capas: **contenido**, **padding**, **border** y **margin**.
 ---
 
 ## El Modelo de Caja
@@ -342,16 +341,3 @@ Cuando dos margenes verticales se tocan, **no se suman**: se colapsan al mayor.
 .caja { margin: 20px; }    /* Correcto */
 .caja { padding: 20px; }   /* Incorrecto: espacio DENTRO */
 ```
-
----
-
-## Ejercicio practico
-
-1. Abre el `index.html` en tu navegador.
-2. Abre las DevTools (F12) e inspecciona una caja. Veras el modelo de caja.
-3. Cambia el padding de `.ejemplo-caja` y observa como crece.
-4. Cambia el margin y observa como se mueve.
-5. Quita `box-sizing: border-box` del ejemplo y mide el ancho real.
-6. Crea una tarjeta con padding, border y margin diferentes.
-7. Usa `margin: 0 auto` para centrar un contenedor.
-8. Experimenta con el colapso de margenes: crea dos divs con margin-top y margin-bottom.
