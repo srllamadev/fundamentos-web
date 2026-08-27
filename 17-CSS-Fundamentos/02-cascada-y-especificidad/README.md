@@ -392,16 +392,3 @@ p {
 .texto { color: blue; }     /* 0-1-0 */
 #titulo { color: red; }     /* 1-0-0 --> GANA por especificidad */
 ```
-
----
-
-## Ejercicios practicos
-
-1. Abre el `index.html` en tu navegador.
-2. Abre las DevTools (F12) e inspecciona el nombre "Yamil N".
-3. En la pestana de estilos, veras que regla gana y cual esta tachada.
-4. Agrega una regla inline al nombre y observa como cambia.
-5. Crea un ID y una clase que apunten al mismo elemento. Cambia el orden en el CSS y observa que NO importa el orden: el ID siempre gana.
-6. Usa `!important` en una clase y verifica que vence al ID.
-7. Inspecciona un parrafo hijo de un contenedor con `color`. Veras que el color se hereda.
-8. Cambia el `background-color` del padre y verifica que NO se hereda.
