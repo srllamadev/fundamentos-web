@@ -389,4 +389,8 @@ perfil { background: green; }    /* Esto busca un <perfil> que no existe */
 
 <!-- CORRECTO -->
 <div class="perfil">Perfil</div>
+<<<<<<< HEAD
 ```
+=======
+```
+>>>>>>> ae742ff4619b40028f9e0c5691dac128a096c004

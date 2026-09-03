@@ -352,16 +352,3 @@ span.medida {
     padding: 10px 20px;
 }
 ```
-
----
-
-## Ejercicios practicos
-
-1. Abre el `index.html` en tu navegador.
-2. Abre las DevTools (F12) y cambia el display de un elemento para ver que pasa.
-3. Inspecciona un `span` y prueba ponerle `width: 200px`. Veras que no funciona.
-4. Cambia el span a `display: inline-block` y verifica que el width ahora si funciona.
-5. Crea 3 divs con `display: inline-block` y `width: 30%` para ponerlos en fila.
-6. Usa `display: none` en un elemento y nota que desaparece sin dejar hueco.
-7. Cambia `display: none` por `visibility: hidden` y nota la diferencia.
-8. Convierte un link `<a>` en un boton visual con `display: inline-block` + padding + background.
