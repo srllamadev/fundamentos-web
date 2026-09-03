@@ -353,13 +353,3 @@ h1 {
 ```
 
 ---
-
-## Ejercicio practico
-
-1. Abre el `index.html` en tu navegador.
-2. Identifica los 3 tipos de CSS (interno con `<style>`, en linea con `style=""`).
-3. Cambia el color del `<h1>` a otro color en el `<style>`.
-4. Agrega una nueva regla CSS para los `<h3>` dentro del `<style>`.
-5. Quita el punto y coma de una propiedad y observa que pasa.
-6. Convierte el CSS interno en un archivo externo `estilos.css` y vinculo con `<link>`.
-7. Crea una clase `.importante` con estilos propios y aplicala a un elemento.

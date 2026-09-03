@@ -390,16 +390,3 @@ perfil { background: green; }    /* Esto busca un <perfil> que no existe */
 <!-- CORRECTO -->
 <div class="perfil">Perfil</div>
 ```
-
----
-
-## Ejercicio practico
-
-1. Abre el `index.html` en tu navegador.
-2. Identifica los selectores de etiqueta, clase e ID.
-3. Crea una nueva clase `.certificacion` con fondo morado y texto blanco.
-4. Aplicala a una nueva seccion de certificaciones.
-5. Agrega un ID `#habilidades` a una seccion y estilizala diferente.
-6. Usa el selector multiple para dar la misma fuente a h1, h2, h3 y h4.
-7. Crea un elemento con 2 clases y verifica que los estilos se acumulan.
-8. Agrega un `p.dato-clave` para ver como funciona la combinacion de selectores.
