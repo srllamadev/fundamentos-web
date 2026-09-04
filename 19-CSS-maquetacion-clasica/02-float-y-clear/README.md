@@ -186,24 +186,3 @@ Tablas   Floats   Floats    Flexbox   Grid +
 | Layout se rompe en movil | Floats no son responsive facilmente | Migrar a Flexbox/Grid con media queries simples |
 
 ---
-
-## Ejercicios practicos
-
-### Ejercicio 1: Imagen con texto alrededor
-Crea una tarjeta de producto de TextilPro donde una imagen flote a la izquierda y el texto de descripcion fluya a su alrededor. Agrega `margin` para que no quede pegado.
-
-### Ejercicio 2: El clearfix
-Crea tres cajas con `float: left` dentro de un contenedor. Observa que el contenedor colapsa. Luego aplica el clearfix con `::after` y verifica que el contenedor recupera su altura.
-
-### Ejercicio 3: Comparar float vs Flexbox
-Recrea un layout de 3 columnas primero con `float` y luego con Flexbox. Compara la cantidad de codigo y la facilidad de mantenimiento.
-
-### Ejercicio 4: Avatar en un comentario
-Crea un componente de comentario de blog donde el avatar flote a la izquierda y el nombre + mensaje esten a la derecha. Este es un caso valido para usar `float` hoy en dia.
-
----
-
-## Conexiones
-
-- Tema anterior: [Posicionamiento CSS](../01-posicionamiento/)
-- Siguiente seccion: [Flexbox](../../04-maquetacion-moderna/01-flexbox/) - la alternativa moderna
