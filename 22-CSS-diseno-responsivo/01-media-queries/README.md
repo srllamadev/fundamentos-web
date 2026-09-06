@@ -404,29 +404,3 @@ body {
 | 6 | **Ordena las queries de menor a mayor** | Mantén el codigo organizado |
 
 ---
-
-## Ejercicios practicos
-
-### Ejercicio 1: Indicador de tamano
-Crea un div que muestre un texto diferente segun el tamano de pantalla: "Movil" (< 768px), "Tablet" (768px - 991px), "Desktop" (992px+).
-
-### Ejercicio 2: Grid responsivo
-Crea un grid de 6 tarjetas que sea 1 columna en movil, 2 en tablet y 3 en desktop.
-
-### Ejercicio 3: Navegacion adaptativa
-Crea una navegacion que sea vertical en movil y horizontal en tablet/desktop.
-
-### Ejercicio 4: Layout con sidebar
-Crea un layout con contenido principal y sidebar que en movil se apilen y en desktop se pongan lado a lado.
-
-### Ejercicio 5: Tabla con scroll
-Crea una tabla ancha que en movil tenga scroll horizontal y en desktop se vea completa.
-
-### Ejercicio 6: Perfil completo
-Crea una tarjeta de perfil responsiva para Yamil N que se vea bien en movil, tablet y desktop.
-
----
-
-## Siguiente paso
-
-Ahora que dominas las media queries, pasa a **[02-unidades-fluidas](../02-unidades-fluidas/)** para aprender sobre unidades de medida que se adaptan automaticamente.
