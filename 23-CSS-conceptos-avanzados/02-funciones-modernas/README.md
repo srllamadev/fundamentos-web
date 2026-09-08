@@ -176,21 +176,3 @@ En una tablet (768px), `5vw` = 38px ≈ 2.4rem → usa el valor ideal
 | Unidades incompatibles | `calc(100px + 5em)` (contexto incierto) | `calc(100px + 5 * 1em)` | Multiplicar por escalar es mas seguro |
 
 ---
-
-## Ejercicios practicos
-
-### Ejercicio 1: Titulo fluido para TextilPro S.A.
-Usa `clamp()` para crear un titulo que sea:
-- Minimo: 1.5rem
-- Ideal: 4vw
-- Maximo: 3.5rem
-
-### Ejercicio 2: Tarjeta responsive
-Crea una tarjeta de perfil que use `min()` para que nunca exceda 600px de ancho, pero que se ajuste al 100% en moviles.
-
-### Ejercicio 3: Contenedor con calc()
-Crea un contenedor que ocupe `calc(100vw - 200px)` cuando hay una barra lateral de 200px.
-
-### Ejercicio 4: Combinacion avanzada
-Crea un padding que use `clamp()` con `calc()` dentro: `clamp(1rem, calc(1rem + 2vw), 3rem)`.
-Prueba en diferentes tamanios de pantalla y documenta los resultados.
