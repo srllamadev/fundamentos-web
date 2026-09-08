@@ -179,25 +179,3 @@ Las variables CSS respetan la **cascada**. Si declaras una variable en `:root`, 
 | Olvidar el fallback | `var(--no-existe)` sin respaldo | `var(--no-existe, #000)` | Si la variable no existe, queda vacio |
 
 ---
-
-## Ejercicios practicos
-
-### Ejercicio 1: Sistema de colores para TextilPro S.A.
-Crea un set de variables CSS en `:root` que incluya:
-- Color primario corporativo (#1a5276)
-- Color secundario (#2e86c1)
-- Color de acento para alertas (#f39c12)
-- Color de fondo (#f5f5f5)
-- Color de texto (#333)
-
-Aplica estas variables a una tarjeta de perfil de Yamil N.
-
-### Ejercicio 2: Tema claro y oscuro
-Usando `[data-theme="oscuro"]`, crea un override de las variables para modo oscuro.
-Pista: el fondo debe ser oscuro (#1c2833) y el texto claro (#ecf0f1).
-
-### Ejercicio 3: Variables con fallback
-Crea un boton que use `var(--color-boton, #2e86c1)` para que, si la variable no existe, use un azul por defecto.
-
-### Ejercicio 4: Scope localizado
-Crea un componente `.tarjeta-urgente` que defina su propia variable `--color-borde: red;` y aplícala solo a ese componente sin afectar al resto de la pagina.
