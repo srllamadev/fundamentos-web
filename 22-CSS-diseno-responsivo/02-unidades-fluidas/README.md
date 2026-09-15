@@ -268,15 +268,3 @@ Esta seccion:
 .padre { height: 400px; }
 .hijo { height: 50%; }  /* 50% de 400px = 200px */
 ```
-
----
-
-## Ejercicio practico
-
-1. Abre el `index.html` y cambia el tamano de la ventana para ver los efectos.
-2. Crea una seccion `hero` con `height: 100vh` y contenido centrado.
-3. Usa `clamp()` para crear un titulo que escale fluidamente.
-4. Crea un grid de 3 columnas que pase a 1 columna en pantallas pequenas.
-5. Usa `vmin` para crear un avatar circular que se adapte.
-6. Combina `%` y `max-width` para un contenedor centrado.
-7. Experimenta con `vmax` para un fondo decorativo.
