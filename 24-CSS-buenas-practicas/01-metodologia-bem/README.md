@@ -254,28 +254,3 @@ El cuello no existe por si solo, siempre es parte de una camiseta. Por eso se ll
 | Nombres genericos | `.item`, `.text`, `.box` | `.menu__item`, `.perfil__texto` | Los nombres deben ser descriptivos |
 
 ---
-
-## Ejercicios practicos
-
-### Ejercicio 1: Componente boton BEM
-Crea un bloque `.boton` con:
-- Elementos: `.boton__icono`, `.boton__texto`
-- Modificadores: `.boton--primario`, `.boton--grande`, `.boton--deshabilitado`
-
-### Ejercicio 2: Tarjeta de producto para TextilPro
-Aplica BEM a una tarjeta de producto textil:
-- Bloque: `.producto-tarjeta`
-- Elementos: imagen, nombre, precio, descripcion
-- Modificadores: `--oferta`, `--agotado`
-
-### Ejercicio 3: Menu de navegacion
-Crea un menu con BEM:
-- Bloque: `.nav-principal`
-- Elementos: `__lista`, `__item`, `__enlace`
-- Modificadores: `__enlace--activo`, `__enlace--externo`
-
-### Ejercicio 4: Formulario de contacto
-Convierte un formulario en componentes BEM:
-- Bloque: `.form-contacto`
-- Elementos: `__campo`, `__label`, `__input`, `__boton-enviar`
-- Modificadores: `__campo--error`, `__input--valido`
