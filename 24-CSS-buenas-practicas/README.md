@@ -25,11 +25,3 @@ En esta seccion, Yamil N. (ingeniero industrial de TextilPro S.A.) te ensenia a 
 ```
 
 En TextilPro S.A., Yamil aplica Lean Manufacturing: eliminar desperdicios, estandarizar procesos, mejorar continuamente. Con CSS pasa igual: BEM elimina la confusion, la accesibilidad incluye a todos los usuarios, y la semantica hace tu codigo predecible.
-
-## Objetivo de aprendizaje
-
-Al finalizar esta seccion, podras:
-1. Nombrar clases con BEM de forma consistente
-2. Crear interfaces accesibles con contraste adecuado y focus states
-3. Usar HTML semantico correctamente con CSS
-4. Implementar `prefers-reduced-motion` para usuarios sensibles al movimiento
