@@ -66,20 +66,3 @@ Paleta de Colores:
 │ oscuro   │ claro    │ dorado   │ claro    │ oscuro   │
 └──────────┴──────────┴──────────┴──────────┴──────────┘
 ```
-
----
-
-## Ejercicios integradores
-
-Al finalizar las 3 subsecciones, deberias poder crear:
-
-- [ ] Una tarjeta de perfil profesional con tipografia personalizada
-- [ ] Una seccion con fondos degradados y bordes elegantes
-- [ ] Un boton con efectos hover y transiciones suaves
-- [ ] Un reporte completo con todo lo aprendido
-
----
-
-## Siguiente paso
-
-Comienza con **[01-tipografia](01-tipografia/)** para aprender a dar personalidad tipografica a tus paginas.
