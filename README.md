@@ -77,6 +77,45 @@ Modulo introductorio de JavaScript. Al completar estas 8 lecciones, podras compr
 
 ---
 
+## JavaScript — Funciones y estructuras de datos
+
+Segunda etapa del modulo de JavaScript. Al completar estas 10 lecciones, podras crear funciones reutilizables, trabajar con strings y numeros, manejar arrays y objetos, aplicar metodos modernos de procesamiento, usar fechas y comprender el formato JSON.
+
+**Objetivos de la etapa:**
+
+- Crear funciones con parametros y valores de retorno.
+- Comprender el alcance de variables y las funciones flecha.
+- Manipular cadenas de texto y numeros.
+- Trabajar con colecciones de datos (arrays y objetos).
+- Transformar datos con metodos modernos.
+- Trabajar con fechas y JSON.
+
+**Requisitos previos:** haber completado las lecciones 25-32 (Fundamentos de JavaScript).
+
+**Orden recomendado:** sigue las lecciones en orden numerico. Cada una construye sobre los conocimientos de la anterior.
+
+| Leccion | Tema | Concepto principal |
+|---------|------|--------------------|
+| [33-JS-funciones](33-JS-funciones/) | Funciones | Declaracion de funciones, parametros, return, reutilizacion |
+| [34-JS-scope-y-funciones-flecha](34-JS-scope-y-funciones-flecha/) | Scope y funciones flecha | Scope global/local/bloque, closures, arrow functions |
+| [35-JS-strings](35-JS-strings/) | Strings | Metodos de cadenas, busqueda, extraccion, transformacion |
+| [36-JS-numeros-y-math](36-JS-numeros-y-math/) | Numeros y Math | Conversion, redondeo, Math, numeros aleatorios |
+| [37-JS-arrays](37-JS-arrays/) | Arrays | Creacion, acceso, modificacion, iteracion de arrays |
+| [38-JS-metodos-de-arrays](38-JS-metodos-de-arrays/) | Metodos de arrays | map, filter, reduce, find, sort, encadenamiento |
+| [39-JS-objetos](39-JS-objetos/) | Objetos | Propiedades, metodos, this, arrays de objetos |
+| [40-JS-desestructuracion-spread-rest](40-JS-desestructuracion-spread-rest/) | Desestructuracion, spread y rest | Sintaxis moderna para arrays y objetos |
+| [41-JS-fechas](41-JS-fechas/) | Fechas | Date, formateo, comparacion, diferencias |
+| [42-JS-json](42-JS-json/) | JSON | JSON.stringify, JSON.parse, practica integradora |
+
+### Instrucciones de ejecucion
+
+- Abre cualquier `index.html` en tu navegador.
+- Presiona F12 para abrir las herramientas de desarrollador.
+- Selecciona la pestana **Console** para ver los resultados.
+- Para la practica integradora (leccion 42), ejecuta `practica-integradora.js` desde la consola o con Node.js: `node practica-integradora.js`.
+
+---
+
 ## Estructura del proyecto
 
 ```
@@ -85,6 +124,7 @@ fundamentos-web/
 |-- 01 a 16 ---- HTML (estructura y semantica)
 |-- 17 a 24 ---- CSS (estilo y diseno)
 |-- 25 a 32 ---- JavaScript (fundamentos del lenguaje)
+|-- 33 a 42 ---- JavaScript (funciones y estructuras de datos)
 |
 |-- README.md
 ```
