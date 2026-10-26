@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Vinculación con HTML</title>
+
+    <!-- ========================================
+         MÉTODO 2: JavaScript interno (NO recomendado para proyectos grandes)
+         El código se escribe directamente dentro de la etiqueta <script>
+    ======================================== -->
+    <!--
+    <script>
+        console.log("Este mensaje viene de JavaScript interno");
+        console.log("El código está escrito directamente en el HTML");
+    </script>
+    -->
+
+    <!-- ========================================
+         MÉTODO 3: Script en el head SIN defer (NO recomendado)
+         El script se ejecuta antes de que el HTML termine de cargarse,
+         lo que puede causar problemas si intenta acceder a elementos
+         que aún no existen en el documento.
+    ======================================== -->
+    <!--
+    <script src="script.js"></script>
+    -->
+
+    <!-- ========================================
+         MÉTODO 4: Script con async
+         El script se descarga en paralelo y se ejecuta apenas termina.
+         Útil para scripts independientes como análisis o estadísticas.
+    ======================================== -->
+    <!--
+    <script src="script.js" async></script>
+    -->
+</head>
+<body>
+    <h1>JavaScript - Vinculación con HTML</h1>
+
+    <p>En esta lección aprenderemos las diferentes formas de vincular JavaScript con HTML: código interno, código externo, y las ventajas de cada método. También veremos cómo la posición de la etiqueta script y los atributos defer y async afectan la carga de la página.</p>
+
+    <p>Presiona <strong>F12</strong> o haz clic derecho y selecciona <strong>"Inspeccionar"</strong> para abrir las herramientas de desarrollador, luego ve a la pestaña <strong>"Console"</strong>.</p>
+
+    <!-- ========================================
+         MÉTODO 5: JavaScript inline (NO recomendado)
+         Se escribe directamente en los atributos HTML.
+         Es difícil de mantener y mezclar lógica con estructura.
+    ======================================== -->
+    <!--
+    <button onclick="alert('Hola desde JavaScript inline')">Haz clic aquí</button>
+    -->
+
+    <!-- ========================================
+         MÉTODO 1 (RECOMENDADO): Script externo con defer
+         - El archivo se descarga en paralelo al parsear el HTML
+         - Se ejecuta DESPUÉS de que todo el HTML se haya parseado
+         - Respeta el orden de carga si hay múltiples scripts
+         - Mantiene el código organizado y reutilizable
+    ======================================== -->
+    <script src="script.js" defer></script>
+</body>
+</html>
